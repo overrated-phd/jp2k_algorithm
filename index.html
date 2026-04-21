@@ -9,7 +9,6 @@
 :root {
   --bg: #FAFAF8;
   --bg-warm: #F5F3EF;
-  --bg-code: #F0EDE8;
   --bg-card: #FFFFFF;
   --border: #E0DCD4;
   --border-light: #EAE6DE;
@@ -26,173 +25,143 @@
   --green-light: rgba(45,125,70,0.08);
   --purple: #6B46C1;
   --purple-light: rgba(107,70,193,0.08);
+  --orange: #C05621;
+  --orange-light: rgba(192,86,33,0.08);
   --shadow-sm: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.06);
   --shadow-md: 0 4px 12px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
   --serif: 'Crimson Pro', Georgia, serif;
   --sans: 'Source Sans 3', 'Helvetica Neue', sans-serif;
   --mono: 'IBM Plex Mono', 'Menlo', monospace;
 }
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--text-body);font-family:var(--sans);font-size:16.5px;line-height:1.75}
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,250,248,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border-light);height:52px;display:flex;align-items:center;padding:0 clamp(1rem,4vw,3rem)}
+nav .nt{font-family:var(--mono);font-weight:600;font-size:.78rem;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase}
+nav ul{list-style:none;display:flex;gap:1.4rem;margin-left:auto}
+nav a{color:var(--text-dim);text-decoration:none;font-size:.8rem;font-weight:500;transition:color .25s}
+nav a:hover{color:var(--accent)}
 
-body {
-  background: var(--bg);
-  color: var(--text-body);
-  font-family: var(--sans);
-  font-size: 16.5px;
-  line-height: 1.75;
+.hero{padding:clamp(7rem,14vh,10rem) clamp(1.5rem,5vw,3rem) clamp(4rem,8vh,6rem);max-width:1080px;margin:0 auto;border-bottom:1px solid var(--border)}
+.hero-ey{font-family:var(--mono);font-size:.72rem;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:1.5rem;font-weight:500}
+.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.4rem,5.5vw,3.8rem);line-height:1.15;color:var(--text);margin-bottom:1.5rem;max-width:720px}
+.hero-sub{font-size:1.12rem;color:var(--text-dim);max-width:640px;line-height:1.7}
+
+.wrap{max-width:860px;margin:0 auto;padding:0 clamp(1.5rem,5vw,3rem)}
+.wrap-w{max-width:1080px;margin:0 auto;padding:0 clamp(1.5rem,5vw,3rem)}
+section{padding:4rem 0}
+section+section{border-top:1px solid var(--border-light)}
+
+.sn{font-family:var(--mono);font-size:.68rem;font-weight:600;letter-spacing:2.5px;color:var(--accent);text-transform:uppercase;margin-bottom:.75rem}
+h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.6rem,3vw,2.2rem);color:var(--text);margin-bottom:.6rem;line-height:1.3}
+h3{font-family:var(--serif);font-weight:600;font-size:1.25rem;color:var(--text);margin:2.2rem 0 .5rem;line-height:1.35}
+h4{font-family:var(--sans);font-weight:600;font-size:.95rem;color:var(--text);margin:1.6rem 0 .4rem}
+.lead{font-size:1.05rem;color:var(--text-dim);max-width:680px;margin-bottom:2.5rem}
+p+p{margin-top:1rem}
+
+.math{background:var(--bg-warm);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:4px;padding:1.2rem 1.5rem;margin:1.4rem 0;font-family:var(--mono);font-size:.86rem;line-height:2.1;overflow-x:auto;color:var(--text)}
+.math .ml{font-family:var(--mono);font-size:.68rem;color:var(--accent);letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:.4rem;font-weight:600}
+.mi{font-family:var(--mono);font-size:.88em;color:var(--text);background:var(--bg-warm);padding:.1em .4em;border-radius:3px}
+
+.def{background:var(--bg-card);border:1px solid var(--border);border-radius:6px;padding:1.5rem 1.8rem;margin:1.5rem 0;box-shadow:var(--shadow-sm)}
+.def.bl{border-left:3px solid var(--blue)} .def.gr{border-left:3px solid var(--green)}
+.def.pu{border-left:3px solid var(--purple)} .def.rd{border-left:3px solid var(--accent)}
+.def.or{border-left:3px solid var(--orange)}
+.dt{font-family:var(--sans);font-weight:700;font-size:.88rem;letter-spacing:.3px;margin-bottom:.6rem}
+.def.bl .dt{color:var(--blue)} .def.gr .dt{color:var(--green)}
+.def.pu .dt{color:var(--purple)} .def.rd .dt{color:var(--accent)}
+.def.or .dt{color:var(--orange)}
+.def p{font-size:.92rem;line-height:1.7}
+
+.pipe{display:flex;gap:0;margin:2rem 0;border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--bg-card);box-shadow:var(--shadow-sm)}
+.pn{flex:1;padding:1.4rem 1rem;text-align:center;border-right:1px solid var(--border-light);position:relative;transition:background .25s}
+.pn:last-child{border-right:none} .pn:hover{background:var(--accent-bg)}
+.pn .pnn{font-family:var(--mono);font-size:.62rem;font-weight:600;letter-spacing:2px;color:var(--accent);margin-bottom:.4rem}
+.pn .pnt{font-family:var(--serif);font-weight:600;font-size:1rem;color:var(--text);margin-bottom:.3rem}
+.pn .pnd{font-size:.76rem;color:var(--text-dim);line-height:1.5}
+.pn .pa{position:absolute;right:-8px;top:50%;transform:translateY(-50%);z-index:2;color:var(--accent);font-size:.9rem}
+
+.tbar{display:flex;gap:2px;margin:2rem 0 0;border-bottom:2px solid var(--border);flex-wrap:wrap}
+.tb{background:none;border:none;border-bottom:2px solid transparent;padding:.7rem 1.2rem;margin-bottom:-2px;font-family:var(--sans);font-size:.88rem;font-weight:500;color:var(--text-dim);cursor:pointer;transition:all .25s}
+.tb:hover{color:var(--text)} .tb.a{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+.tp{display:none;padding:2rem 0} .tp.a{display:block}
+
+.cg{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin:1.5rem 0}
+.cd{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:1.5rem 1.6rem;box-shadow:var(--shadow-sm);transition:box-shadow .25s}
+.cd:hover{box-shadow:var(--shadow-md)}
+.ct{font-family:var(--mono);font-size:.62rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:.5rem;display:inline-block;padding:.2rem .6rem;border-radius:3px}
+.ct.bl{background:var(--blue-light);color:var(--blue)} .ct.gr{background:var(--green-light);color:var(--green)}
+.ct.pu{background:var(--purple-light);color:var(--purple)} .ct.rd{background:var(--accent-bg);color:var(--accent)}
+.ct.or{background:var(--orange-light);color:var(--orange)}
+.cd h4{margin-top:0;font-family:var(--serif);font-size:1.08rem}
+.cd p{font-size:.88rem;color:var(--text-dim);line-height:1.65}
+
+.sp{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:2rem;margin:2rem 0;box-shadow:var(--shadow-md)}
+.sp h3{margin-top:0}
+.sc{display:flex;flex-wrap:wrap;gap:1.2rem;align-items:center;margin:1.2rem 0;padding:1rem 1.2rem;background:var(--bg-warm);border-radius:6px;border:1px solid var(--border-light)}
+.cg2{display:flex;align-items:center;gap:.5rem}
+.cg2 label{font-family:var(--mono);font-size:.75rem;font-weight:500;color:var(--text-dim);letter-spacing:.5px}
+.cg2 select{font-family:var(--sans);font-size:.85rem;padding:.35rem .7rem;border:1px solid var(--border);border-radius:4px;background:var(--bg-card);color:var(--text);cursor:pointer}
+.cg2 input[type="range"]{-webkit-appearance:none;width:160px;height:3px;background:var(--border);border-radius:3px;outline:none}
+.cg2 input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:var(--accent);cursor:pointer;border:2px solid var(--bg-card);box-shadow:var(--shadow-sm)}
+.cv{font-family:var(--mono);font-size:.82rem;font-weight:600;color:var(--accent);min-width:50px}
+.br{font-family:var(--sans);font-size:.85rem;font-weight:600;background:var(--accent);color:#fff;border:none;padding:.5rem 1.4rem;border-radius:5px;cursor:pointer;transition:all .2s;letter-spacing:.3px}
+.br:hover{background:var(--accent-light);transform:translateY(-1px);box-shadow:var(--shadow-sm)}
+
+.cgr{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin:1.2rem 0}
+.cc{background:var(--bg-warm);border:1px solid var(--border-light);border-radius:6px;padding:.8rem;text-align:center}
+.cc canvas{width:100%;border-radius:4px;image-rendering:pixelated;background:#000}
+.cl{font-family:var(--mono);font-size:.68rem;color:var(--text-dim);margin-top:.5rem;letter-spacing:.5px;font-weight:500}
+.sr{display:flex;flex-wrap:wrap;gap:2rem;margin-top:1.5rem;padding-top:1.2rem;border-top:1px solid var(--border-light)}
+.si{text-align:center}
+.sv{font-family:var(--mono);font-size:1.5rem;font-weight:600;color:var(--accent)}
+.sl{font-size:.72rem;color:var(--text-muted);font-weight:500;margin-top:.15rem}
+
+.bpg{display:grid;grid-template-columns:repeat(8,1fr);gap:3px;max-width:360px;margin:1rem 0}
+.bpc{aspect-ratio:1;border-radius:3px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.72rem;font-weight:600;transition:all .15s}
+.bpc.on{background:rgba(184,67,47,0.12);color:var(--accent)} .bpc.off{background:var(--bg-warm);color:#ccc}
+
+.ctb{width:100%;border-collapse:collapse;margin:2rem 0;font-size:.88rem}
+.ctb thead{background:var(--bg-warm)}
+.ctb th{font-family:var(--mono);font-size:.68rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-dim);text-align:left;padding:.9rem 1rem;border-bottom:2px solid var(--border)}
+.ctb td{padding:.85rem 1rem;border-bottom:1px solid var(--border-light);color:var(--text-body);vertical-align:top}
+.ctb tbody tr:hover{background:var(--accent-bg)}
+.ctb .hl{font-weight:600;color:var(--accent)}
+
+.mi2{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:1.8rem 2rem;margin:1.2rem 0;box-shadow:var(--shadow-sm)}
+.mi2 h3{margin-top:0;font-size:1.15rem;color:var(--text);display:flex;align-items:center;gap:.6rem}
+.mn{font-family:var(--mono);font-size:.72rem;font-weight:600;color:var(--accent);background:var(--accent-bg);width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.mi2 p{font-size:.92rem;line-height:1.75}
+
+.cpn{background:#1E1E2A;color:#D4D4D8;border-radius:8px;padding:1.5rem 1.8rem;margin:1.5rem 0;overflow-x:auto;font-family:var(--mono);font-size:.8rem;line-height:1.85;box-shadow:var(--shadow-md)}
+.cpn .kw{color:#C586C0} .cpn .fn{color:#DCDCAA} .cpn .str{color:#CE9178}
+.cpn .num{color:#B5CEA8} .cpn .cm{color:#6A6A80} .cpn .ty{color:#4EC9B0}
+.ch{font-family:var(--mono);font-size:.68rem;color:#888;letter-spacing:1px;margin-bottom:.8rem;padding-bottom:.6rem;border-bottom:1px solid #2A2A3A}
+
+/* Timing diagram */
+.timing-container{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:2rem;margin:2rem 0;box-shadow:var(--shadow-md);overflow-x:auto}
+.timing-canvas{width:100%;min-width:500px}
+
+/* Chip spec table */
+.chip-table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.88rem}
+.chip-table td{padding:.65rem 1rem;border-bottom:1px solid var(--border-light)}
+.chip-table td:first-child{font-weight:600;color:var(--text);width:40%;font-family:var(--mono);font-size:.82rem}
+.chip-table td:last-child{color:var(--text-body)}
+.chip-table tr:hover{background:var(--accent-bg)}
+
+/* Paper citation */
+.cite{background:var(--bg-warm);border:1px solid var(--border);border-radius:6px;padding:1rem 1.4rem;margin:1.5rem 0;font-size:.85rem;color:var(--text-dim);line-height:1.6}
+.cite strong{color:var(--text)}
+
+footer{margin-top:3rem;padding:2.5rem clamp(1.5rem,5vw,3rem);border-top:1px solid var(--border);text-align:center;font-size:.8rem;color:var(--text-muted)}
+footer a{color:var(--accent);text-decoration:none}
+
+@media(max-width:768px){
+  nav ul{display:none}.pipe{flex-direction:column}.pn{border-right:none;border-bottom:1px solid var(--border-light)}.pn .pa{display:none}.cgr{grid-template-columns:1fr}.cg{grid-template-columns:1fr}
 }
-
-/* ═══ NAV ═══ */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: rgba(250,250,248,0.92); backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border-light);
-  height: 52px; display: flex; align-items: center;
-  padding: 0 clamp(1rem, 4vw, 3rem);
-}
-nav .nt { font-family: var(--mono); font-weight: 600; font-size: 0.78rem; color: var(--accent); letter-spacing: 1.5px; text-transform: uppercase; }
-nav ul { list-style: none; display: flex; gap: 1.6rem; margin-left: auto; }
-nav a { color: var(--text-dim); text-decoration: none; font-size: 0.82rem; font-weight: 500; transition: color 0.25s; }
-nav a:hover { color: var(--accent); }
-
-/* ═══ HERO ═══ */
-.hero {
-  padding: clamp(7rem,14vh,10rem) clamp(1.5rem,5vw,3rem) clamp(4rem,8vh,6rem);
-  max-width: 1080px; margin: 0 auto; border-bottom: 1px solid var(--border);
-}
-.hero-ey { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 3px; color: var(--accent); text-transform: uppercase; margin-bottom: 1.5rem; font-weight: 500; }
-.hero h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(2.4rem,5.5vw,3.8rem); line-height: 1.15; color: var(--text); margin-bottom: 1.5rem; max-width: 720px; }
-.hero-sub { font-size: 1.12rem; color: var(--text-dim); max-width: 620px; line-height: 1.7; }
-
-/* ═══ LAYOUT ═══ */
-.wrap { max-width: 860px; margin: 0 auto; padding: 0 clamp(1.5rem,5vw,3rem); }
-.wrap-w { max-width: 1080px; margin: 0 auto; padding: 0 clamp(1.5rem,5vw,3rem); }
-section { padding: 4rem 0; }
-section + section { border-top: 1px solid var(--border-light); }
-
-.sn { font-family: var(--mono); font-size: 0.68rem; font-weight: 600; letter-spacing: 2.5px; color: var(--accent); text-transform: uppercase; margin-bottom: 0.75rem; }
-h2 { font-family: var(--serif); font-weight: 600; font-size: clamp(1.6rem,3vw,2.2rem); color: var(--text); margin-bottom: 0.6rem; line-height: 1.3; }
-h3 { font-family: var(--serif); font-weight: 600; font-size: 1.25rem; color: var(--text); margin: 2.2rem 0 0.5rem; line-height: 1.35; }
-h4 { font-family: var(--sans); font-weight: 600; font-size: 0.95rem; color: var(--text); margin: 1.6rem 0 0.4rem; }
-.lead { font-size: 1.05rem; color: var(--text-dim); max-width: 680px; margin-bottom: 2.5rem; }
-p + p { margin-top: 1rem; }
-
-/* ═══ MATH ═══ */
-.math {
-  background: var(--bg-warm); border: 1px solid var(--border); border-left: 3px solid var(--accent);
-  border-radius: 4px; padding: 1.2rem 1.5rem; margin: 1.4rem 0;
-  font-family: var(--mono); font-size: 0.86rem; line-height: 2.1; overflow-x: auto; color: var(--text);
-}
-.math .ml { font-family: var(--mono); font-size: 0.68rem; color: var(--accent); letter-spacing: 1px; text-transform: uppercase; display: block; margin-bottom: 0.4rem; font-weight: 600; }
-.mi { font-family: var(--mono); font-size: 0.88em; color: var(--text); background: var(--bg-warm); padding: 0.1em 0.4em; border-radius: 3px; }
-
-/* ═══ DEF BLOCK ═══ */
-.def { background: var(--bg-card); border: 1px solid var(--border); border-radius: 6px; padding: 1.5rem 1.8rem; margin: 1.5rem 0; box-shadow: var(--shadow-sm); }
-.def.bl { border-left: 3px solid var(--blue); }
-.def.gr { border-left: 3px solid var(--green); }
-.def.pu { border-left: 3px solid var(--purple); }
-.def.rd { border-left: 3px solid var(--accent); }
-.dt { font-family: var(--sans); font-weight: 700; font-size: 0.88rem; letter-spacing: 0.3px; margin-bottom: 0.6rem; }
-.def.bl .dt { color: var(--blue); } .def.gr .dt { color: var(--green); }
-.def.pu .dt { color: var(--purple); } .def.rd .dt { color: var(--accent); }
-.def p { font-size: 0.92rem; line-height: 1.7; }
-
-/* ═══ PIPELINE ═══ */
-.pipe { display: flex; gap: 0; margin: 2rem 0; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: var(--bg-card); box-shadow: var(--shadow-sm); }
-.pn { flex: 1; padding: 1.4rem 1rem; text-align: center; border-right: 1px solid var(--border-light); position: relative; transition: background 0.25s; }
-.pn:last-child { border-right: none; }
-.pn:hover { background: var(--accent-bg); }
-.pn .pnn { font-family: var(--mono); font-size: 0.62rem; font-weight: 600; letter-spacing: 2px; color: var(--accent); margin-bottom: 0.4rem; }
-.pn .pnt { font-family: var(--serif); font-weight: 600; font-size: 1rem; color: var(--text); margin-bottom: 0.3rem; }
-.pn .pnd { font-size: 0.76rem; color: var(--text-dim); line-height: 1.5; }
-.pn .pa { position: absolute; right: -8px; top: 50%; transform: translateY(-50%); z-index: 2; color: var(--accent); font-size: 0.9rem; }
-
-/* ═══ TABS ═══ */
-.tbar { display: flex; gap: 2px; margin: 2rem 0 0; border-bottom: 2px solid var(--border); }
-.tb { background: none; border: none; border-bottom: 2px solid transparent; padding: 0.7rem 1.2rem; margin-bottom: -2px; font-family: var(--sans); font-size: 0.88rem; font-weight: 500; color: var(--text-dim); cursor: pointer; transition: all 0.25s; }
-.tb:hover { color: var(--text); }
-.tb.a { color: var(--accent); border-bottom-color: var(--accent); font-weight: 600; }
-.tp { display: none; padding: 2rem 0; }
-.tp.a { display: block; }
-
-/* ═══ CARD GRID ═══ */
-.cg { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.2rem; margin: 1.5rem 0; }
-.cd { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem 1.6rem; box-shadow: var(--shadow-sm); transition: box-shadow 0.25s; }
-.cd:hover { box-shadow: var(--shadow-md); }
-.ct { font-family: var(--mono); font-size: 0.62rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 0.5rem; display: inline-block; padding: 0.2rem 0.6rem; border-radius: 3px; }
-.ct.bl { background: var(--blue-light); color: var(--blue); }
-.ct.gr { background: var(--green-light); color: var(--green); }
-.ct.pu { background: var(--purple-light); color: var(--purple); }
-.ct.rd { background: var(--accent-bg); color: var(--accent); }
-.cd h4 { margin-top: 0; font-family: var(--serif); font-size: 1.08rem; }
-.cd p { font-size: 0.88rem; color: var(--text-dim); line-height: 1.65; }
-
-/* ═══ SIMULATOR ═══ */
-.sp { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 2rem; margin: 2rem 0; box-shadow: var(--shadow-md); }
-.sp h3 { margin-top: 0; }
-.sc { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center; margin: 1.2rem 0; padding: 1rem 1.2rem; background: var(--bg-warm); border-radius: 6px; border: 1px solid var(--border-light); }
-.cg2 { display: flex; align-items: center; gap: 0.5rem; }
-.cg2 label { font-family: var(--mono); font-size: 0.75rem; font-weight: 500; color: var(--text-dim); letter-spacing: 0.5px; }
-.cg2 select { font-family: var(--sans); font-size: 0.85rem; padding: 0.35rem 0.7rem; border: 1px solid var(--border); border-radius: 4px; background: var(--bg-card); color: var(--text); cursor: pointer; }
-.cg2 input[type="range"] { -webkit-appearance: none; width: 160px; height: 3px; background: var(--border); border-radius: 3px; outline: none; }
-.cg2 input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); cursor: pointer; border: 2px solid var(--bg-card); box-shadow: var(--shadow-sm); }
-.cv { font-family: var(--mono); font-size: 0.82rem; font-weight: 600; color: var(--accent); min-width: 50px; }
-.br { font-family: var(--sans); font-size: 0.85rem; font-weight: 600; background: var(--accent); color: #fff; border: none; padding: 0.5rem 1.4rem; border-radius: 5px; cursor: pointer; transition: all 0.2s; letter-spacing: 0.3px; }
-.br:hover { background: var(--accent-light); transform: translateY(-1px); box-shadow: var(--shadow-sm); }
-
-.cgr { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin: 1.2rem 0; }
-.cc { background: var(--bg-warm); border: 1px solid var(--border-light); border-radius: 6px; padding: 0.8rem; text-align: center; }
-.cc canvas { width: 100%; border-radius: 4px; image-rendering: pixelated; background: #000; }
-.cl { font-family: var(--mono); font-size: 0.68rem; color: var(--text-dim); margin-top: 0.5rem; letter-spacing: 0.5px; font-weight: 500; }
-.sr { display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 1.5rem; padding-top: 1.2rem; border-top: 1px solid var(--border-light); }
-.si { text-align: center; }
-.sv { font-family: var(--mono); font-size: 1.5rem; font-weight: 600; color: var(--accent); }
-.sl { font-size: 0.72rem; color: var(--text-muted); font-weight: 500; margin-top: 0.15rem; }
-
-/* ═══ BITPLANE ═══ */
-.bpg { display: grid; grid-template-columns: repeat(8, 1fr); gap: 3px; max-width: 360px; margin: 1rem 0; }
-.bpc { aspect-ratio: 1; border-radius: 3px; display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 0.72rem; font-weight: 600; transition: all 0.15s; }
-.bpc.on { background: rgba(184,67,47,0.12); color: var(--accent); }
-.bpc.off { background: var(--bg-warm); color: #ccc; }
-
-/* ═══ TABLE ═══ */
-.ctb { width: 100%; border-collapse: collapse; margin: 2rem 0; font-size: 0.88rem; }
-.ctb thead { background: var(--bg-warm); }
-.ctb th { font-family: var(--mono); font-size: 0.68rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-dim); text-align: left; padding: 0.9rem 1rem; border-bottom: 2px solid var(--border); }
-.ctb td { padding: 0.85rem 1rem; border-bottom: 1px solid var(--border-light); color: var(--text-body); vertical-align: top; }
-.ctb tbody tr:hover { background: var(--accent-bg); }
-.ctb .hl { font-weight: 600; color: var(--accent); }
-
-/* ═══ ML ═══ */
-.mi2 { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 1.8rem 2rem; margin: 1.2rem 0; box-shadow: var(--shadow-sm); }
-.mi2 h3 { margin-top: 0; font-size: 1.15rem; color: var(--text); display: flex; align-items: center; gap: 0.6rem; }
-.mn { font-family: var(--mono); font-size: 0.72rem; font-weight: 600; color: var(--accent); background: var(--accent-bg); width: 28px; height: 28px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.mi2 p { font-size: 0.92rem; line-height: 1.75; }
-
-/* ═══ CODE ═══ */
-.cpn { background: #1E1E2A; color: #D4D4D8; border-radius: 8px; padding: 1.5rem 1.8rem; margin: 1.5rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.8rem; line-height: 1.85; box-shadow: var(--shadow-md); }
-.cpn .kw { color: #C586C0; } .cpn .fn { color: #DCDCAA; } .cpn .str { color: #CE9178; }
-.cpn .num { color: #B5CEA8; } .cpn .cm { color: #6A6A80; } .cpn .ty { color: #4EC9B0; }
-.ch { font-family: var(--mono); font-size: 0.68rem; color: #888; letter-spacing: 1px; margin-bottom: 0.8rem; padding-bottom: 0.6rem; border-bottom: 1px solid #2A2A3A; }
-
-/* ═══ FOOTER ═══ */
-footer { margin-top: 3rem; padding: 2.5rem clamp(1.5rem,5vw,3rem); border-top: 1px solid var(--border); text-align: center; font-size: 0.8rem; color: var(--text-muted); }
-footer a { color: var(--accent); text-decoration: none; }
-
-/* ═══ RESPONSIVE ═══ */
-@media (max-width: 768px) {
-  nav ul { display: none; }
-  .pipe { flex-direction: column; }
-  .pn { border-right: none; border-bottom: 1px solid var(--border-light); }
-  .pn .pa { display: none; }
-  .cgr { grid-template-columns: 1fr; }
-  .cg { grid-template-columns: 1fr; }
-}
-
-.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
-.reveal.vis { opacity: 1; transform: translateY(0); }
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+.reveal.vis{opacity:1;transform:translateY(0)}
 </style>
 </head>
 <body>
@@ -204,18 +173,16 @@ footer a { color: var(--accent); text-decoration: none; }
     <li><a href="#s2">Pipeline</a></li>
     <li><a href="#s3">Math</a></li>
     <li><a href="#s4">Simulator</a></li>
-    <li><a href="#s5">Comparison</a></li>
-    <li><a href="#s6">ML Era</a></li>
+    <li><a href="#s5">Parallel EBCOT</a></li>
+    <li><a href="#s6">Comparison</a></li>
+    <li><a href="#s7">ML Era</a></li>
   </ul>
 </nav>
 
 <header class="hero">
   <div class="hero-ey">ISO/IEC 15444-1 · Technical Reference</div>
   <h1>JPEG 2000<br>End-to-End Explained</h1>
-  <p class="hero-sub">
-    A project website developed by <strong>Maju Sumanto</strong> to fulfill course requirements for <strong>VLSI Image Processing</strong> under the supervision of <strong>Professor Masayuki Miyama</strong> at Kanazawa University.
-    
-    A mathematically rigorous, interactive exploration of the wavelet-based image compression standard — from lifting-scheme DWT through EBCOT entropy coding, with working simulations and modern machine learning connections.</p>
+  <p class="hero-sub">A mathematically rigorous, interactive exploration of the wavelet-based image compression standard — from lifting-scheme DWT through EBCOT entropy coding, including bit-plane &amp; pass parallel hardware architectures (Miyama et al., Kanazawa University), with working simulations and machine learning connections.</p>
 </header>
 
 <!-- §1 OVERVIEW -->
@@ -224,11 +191,14 @@ footer a { color: var(--accent); text-decoration: none; }
   <div class="sn">§1 — Overview</div>
   <h2>What is JPEG 2000?</h2>
   <p class="lead">A wavelet-based image compression standard superseding JPEG, offering superior rate-distortion, lossless capability, and progressive transmission in a single unified codestream.</p>
-  <p>JPEG 2000, standardized in 2000 by the Joint Photographic Experts Group, replaces JPEG's 8×8 block Discrete Cosine Transform (DCT) with a full-frame <strong>Discrete Wavelet Transform (DWT)</strong>. This eliminates blocking artifacts at low bitrates and enables progressive decoding, Region of Interest (ROI) coding, and unified lossless/lossy compression — features impossible with block-DCT.</p>
-  <p>The standard spans multiple parts: Part 1 (core codec), Part 2 (extensions), Part 3 (Motion JPEG 2000), Part 9 (JPIP interactive protocol), and Part 15 (HTJ2K high-throughput). Primary domains include <strong>digital cinema</strong> (DCI mandates JP2K for theatrical distribution), <strong>medical imaging</strong> (DICOM lossless archival), <strong>satellite/geospatial</strong> (Sentinel-2, GOES), and <strong>cultural heritage preservation</strong>.</p>
+  <p>JPEG 2000, standardized in 2000 by the Joint Photographic Experts Group, replaces JPEG's 8×8 block Discrete Cosine Transform (DCT) with a full-frame <strong>Discrete Wavelet Transform (DWT)</strong>. This eliminates blocking artifacts at low bitrates and enables progressive decoding, Region of Interest (ROI) coding, and unified lossless/lossy compression.</p>
+  <p>The standard spans multiple parts: Part 1 (core codec), Part 2 (extensions), Part 3 (Motion JPEG 2000), Part 9 (JPIP interactive protocol), and Part 15 (HTJ2K high-throughput). Primary domains include <strong>digital cinema</strong> (DCI mandates JP2K), <strong>medical imaging</strong> (DICOM lossless archival), <strong>satellite/geospatial</strong> (Sentinel-2, GOES), and <strong>real-time video transmission</strong> such as wireless PC displays.</p>
   <div class="def bl">
     <div class="dt">Key Innovation: Embedded Coding</div>
-    <p>Unlike JPEG where each quality level requires a separate encoding pass, JP2K produces a single embedded bitstream truncatable at any point to yield the optimal reconstructed image at that rate. This is enabled by EBCOT's rate-distortion optimized layering — a concept absent from the original JPEG standard.</p>
+    <p>JP2K produces a single embedded bitstream truncatable at any point to yield the optimal image at that rate. This is enabled by EBCOT's rate-distortion optimized layering. However, EBCOT is also the computational bottleneck — motivating hardware architectures like the bit-plane and pass parallel approach by Miyama et al.</p>
+  </div>
+  <div class="cite">
+    <strong>Primary hardware reference:</strong> M. Miyama, Y. Inoie, T. Kasuga, R. Inada, R. Kawai, M. Nakao, Y. Matsuda, "A 158 MS/s JPEG 2000 Codec with a Bit-Plane and Pass Parallel Embedded Block Coder," Kanazawa University / Eizo Nanao Corporation.
   </div>
 </section>
 </div>
@@ -238,13 +208,13 @@ footer a { color: var(--accent); text-decoration: none; }
 <section id="s2" class="reveal">
   <div class="sn">§2 — Encoding Pipeline</div>
   <h2>End-to-End Architecture</h2>
-  <p class="lead">Five cascaded stages, each invertible for lossless operation.</p>
+  <p class="lead">Five cascaded stages, each invertible for lossless operation. The EBCOT stage is the most computationally intensive — the focus of hardware optimization.</p>
   <div class="pipe">
     <div class="pn"><div class="pnn">01</div><div class="pnt">Pre-processing</div><div class="pnd">Tiling, DC level shift, color transform (ICT/RCT)</div><div class="pa">→</div></div>
-    <div class="pn"><div class="pnn">02</div><div class="pnt">DWT</div><div class="pnd">Multi-level wavelet decomposition via lifting (CDF 9/7 or Le Gall 5/3)</div><div class="pa">→</div></div>
-    <div class="pn"><div class="pnn">03</div><div class="pnt">Quantization</div><div class="pnd">Dead-zone scalar quantization with subband-adaptive step sizes</div><div class="pa">→</div></div>
-    <div class="pn"><div class="pnn">04</div><div class="pnt">EBCOT</div><div class="pnd">Tier-1 bit-plane coding + MQ coder, Tier-2 rate-distortion optimization</div><div class="pa">→</div></div>
-    <div class="pn"><div class="pnn">05</div><div class="pnt">Bitstream</div><div class="pnd">Packet assembly with 5 progression orders (LRCP, RLCP, RPCL, PCRL, CPRL)</div></div>
+    <div class="pn"><div class="pnn">02</div><div class="pnt">DWT</div><div class="pnd">Multi-level wavelet via lifting (CDF 9/7 or Le Gall 5/3)</div><div class="pa">→</div></div>
+    <div class="pn"><div class="pnn">03</div><div class="pnt">Quantization</div><div class="pnd">Dead-zone scalar quantization, subband-adaptive Δ</div><div class="pa">→</div></div>
+    <div class="pn" style="background:var(--accent-bg)"><div class="pnn" style="color:var(--accent)">04 ★</div><div class="pnt">EBCOT</div><div class="pnd">Bit-plane coding + MQ coder + rate-distortion optimization (bottleneck)</div><div class="pa">→</div></div>
+    <div class="pn"><div class="pnn">05</div><div class="pnt">Bitstream</div><div class="pnd">Packet assembly (LRCP, RLCP, RPCL, PCRL, CPRL)</div></div>
   </div>
 </section>
 </div>
@@ -266,11 +236,11 @@ footer a { color: var(--accent); text-decoration: none; }
   <!-- Pre-processing -->
   <div id="p1" class="tp a">
     <h3>3.1 Tiling</h3>
-    <p>The image <span class="mi">W × H</span> is partitioned into non-overlapping tiles of size <span class="mi">T_w × T_h</span>. Each tile is compressed independently, bounding memory to <span class="mi">O(T_w · T_h)</span>. Single-tile mode (<span class="mi">T_w = W</span>) avoids seam artifacts.</p>
+    <p>The image <span class="mi">W × H</span> is partitioned into non-overlapping tiles of size <span class="mi">T_w × T_h</span>. The Miyama et al. codec uses <span class="mi">128 × 128</span> tiles, balancing memory requirements against seam artifacts. Each tile is compressed independently, bounding memory to <span class="mi">O(T_w · T_h)</span>.</p>
 
     <h3>3.2 DC Level Shift</h3>
     <div class="math"><span class="ml">DC Level Shift</span>x'(i, j) = x(i, j) − 2<sup>B−1</sup></div>
-    <p>For bit depth <span class="mi">B = 8</span>, this maps [0, 255] → [−128, 127], centering the signal around zero for improved transform efficiency.</p>
+    <p>For <span class="mi">B = 8</span>, this maps [0, 255] → [−128, 127], centering the signal for improved DWT efficiency.</p>
 
     <h3>3.3 Color Transform</h3>
     <div class="def rd">
@@ -280,43 +250,38 @@ footer a { color: var(--accent); text-decoration: none; }
     <div class="def gr">
       <div class="dt">Reversible Color Transform (RCT) — Lossless Mode</div>
       <div class="math"><span class="ml">Forward RCT (integer-only)</span>Y  = ⌊(R + 2G + B) / 4⌋<br>Cb = B − G<br>Cr = R − G</div>
-      <div class="math"><span class="ml">Inverse RCT</span>G = Y − ⌊(Cb + Cr) / 4⌋<br>R = Cr + G<br>B = Cb + G</div>
-      <p>The RCT uses integer division only, guaranteeing bit-exact invertibility for lossless compression.</p>
+      <div class="math"><span class="ml">Inverse RCT</span>G = Y − ⌊(Cb + Cr) / 4⌋,  R = Cr + G,  B = Cb + G</div>
+      <p>Integer division guarantees bit-exact invertibility for lossless compression.</p>
     </div>
+    <p>In the Miyama et al. codec, the CCNV (Color Converter) module implements RGB↔YCbCr bidirectionally with reconfigurable logic to share gates between encoder and decoder.</p>
   </div>
 
   <!-- DWT -->
   <div id="p2" class="tp">
     <h3>3.4 Discrete Wavelet Transform</h3>
-    <p>The DWT decomposes the image into a multi-resolution representation via separable 1-D filtering along rows then columns. Each level produces four subbands:</p>
+    <p>The DWT decomposes the image via separable 1-D filtering into four subbands per level:</p>
     <div class="cg">
-      <div class="cd"><div class="ct bl">LL</div><h4>Approximation</h4><p>Low-pass in both directions. Contains coarse-scale image. Recursively decomposed at subsequent levels.</p></div>
+      <div class="cd"><div class="ct bl">LL</div><h4>Approximation</h4><p>Low-pass both directions. Recursively decomposed at subsequent levels.</p></div>
       <div class="cd"><div class="ct gr">LH</div><h4>Horizontal Detail</h4><p>Low-pass horizontal, high-pass vertical. Captures horizontal edges.</p></div>
       <div class="cd"><div class="ct pu">HL</div><h4>Vertical Detail</h4><p>High-pass horizontal, low-pass vertical. Captures vertical edges.</p></div>
       <div class="cd"><div class="ct rd">HH</div><h4>Diagonal Detail</h4><p>High-pass both directions. Captures diagonal textures and noise.</p></div>
     </div>
 
     <h3>3.5 The Lifting Scheme</h3>
-    <p>JP2K implements DWT via the lifting scheme (Sweldens, 1996), factorizing the polyphase matrix into alternating predict/update steps. This yields an in-place, fully invertible algorithm with ~50% fewer operations than direct convolution.</p>
-
     <div class="def bl">
       <div class="dt">Le Gall 5/3 — Lossless Integer Lifting</div>
-      <div class="math"><span class="ml">Split into even/odd</span>s<sub>j</sub><sup>(0)</sup> = x(2j),  d<sub>j</sub><sup>(0)</sup> = x(2j + 1)<br><br><span class="ml">Predict (high-pass)</span>d<sub>j</sub> = d<sub>j</sub><sup>(0)</sup> − ⌊(s<sub>j</sub><sup>(0)</sup> + s<sub>j+1</sub><sup>(0)</sup>) / 2⌋<br><br><span class="ml">Update (low-pass)</span>s<sub>j</sub> = s<sub>j</sub><sup>(0)</sup> + ⌊(d<sub>j−1</sub> + d<sub>j</sub> + 2) / 4⌋</div>
-      <p>Floor operations ensure integer-to-integer mapping. Inverse: undo update, then undo predict.</p>
+      <div class="math"><span class="ml">Split → Predict → Update</span>s<sub>j</sub><sup>(0)</sup> = x(2j),  d<sub>j</sub><sup>(0)</sup> = x(2j + 1)<br>d<sub>j</sub> = d<sub>j</sub><sup>(0)</sup> − ⌊(s<sub>j</sub><sup>(0)</sup> + s<sub>j+1</sub><sup>(0)</sup>) / 2⌋<br>s<sub>j</sub> = s<sub>j</sub><sup>(0)</sup> + ⌊(d<sub>j−1</sub> + d<sub>j</sub> + 2) / 4⌋</div>
     </div>
-
     <div class="def pu">
-      <div class="dt">CDF 9/7 — Lossy Real-Valued Lifting</div>
-      <div class="math"><span class="ml">Four lifting steps</span>d<sup>(1)</sup> = d<sup>(0)</sup> + α·(s<sub>j</sub><sup>(0)</sup> + s<sub>j+1</sub><sup>(0)</sup>)    α = −1.586134342<br>s<sup>(1)</sup> = s<sup>(0)</sup> + β·(d<sub>j-1</sub><sup>(1)</sup> + d<sub>j</sub><sup>(1)</sup>)    β = −0.052980118<br>d<sup>(2)</sup> = d<sup>(1)</sup> + γ·(s<sub>j</sub><sup>(1)</sup> + s<sub>j+1</sub><sup>(1)</sup>)    γ =  0.882911075<br>s<sup>(2)</sup> = s<sup>(1)</sup> + δ·(d<sub>j-1</sub><sup>(2)</sup> + d<sub>j</sub><sup>(2)</sup>)    δ =  0.443506852<br><br><span class="ml">Normalization</span>s = K · s<sup>(2)</sup>,  d = (1/K) · d<sup>(2)</sup>,  K = 1.230174105</div>
-      <p>CDF 9/7 provides ~1 dB PSNR improvement over 5/3 at equivalent bitrates, at the cost of irreversibility.</p>
+      <div class="dt">CDF 9/7 — Lossy Real-Valued Lifting (4 steps)</div>
+      <div class="math"><span class="ml">Lifting coefficients</span>d<sup>(1)</sup> = d<sup>(0)</sup> + α·(s<sub>j</sub> + s<sub>j+1</sub>)    α = −1.586134342<br>s<sup>(1)</sup> = s<sup>(0)</sup> + β·(d<sub>j-1</sub><sup>(1)</sup> + d<sub>j</sub><sup>(1)</sup>)    β = −0.052980118<br>d<sup>(2)</sup> = d<sup>(1)</sup> + γ·(s<sub>j</sub><sup>(1)</sup> + s<sub>j+1</sub><sup>(1)</sup>)    γ =  0.882911075<br>s<sup>(2)</sup> = s<sup>(1)</sup> + δ·(d<sub>j-1</sub><sup>(2)</sup> + d<sub>j</sub><sup>(2)</sup>)    δ =  0.443506852<br><br><span class="ml">Normalization</span>s = K · s<sup>(2)</sup>,  d = (1/K) · d<sup>(2)</sup>,  K = 1.230174105</div>
     </div>
 
     <h3>3.6 Multi-Resolution Structure</h3>
-    <div class="math"><span class="ml">L-level decomposition</span>Total subbands = 3L + 1<br>Resolution r: { HL<sub>L−r+1</sub>, LH<sub>L−r+1</sub>, HH<sub>L−r+1</sub> }  for r = 1, …, L, plus LL<sub>L</sub><br>Subband size at level ℓ: ⌈W / 2<sup>ℓ</sup>⌉ × ⌈H / 2<sup>ℓ</sup>⌉</div>
+    <div class="math"><span class="ml">L-level decomposition</span>Total subbands = 3L + 1<br>Subband size at level ℓ: ⌈W / 2<sup>ℓ</sup>⌉ × ⌈H / 2<sup>ℓ</sup>⌉</div>
 
     <div class="sp">
       <h3>Interactive DWT Subband Viewer</h3>
-      <p style="font-size:0.88rem;color:var(--text-dim);">Haar wavelet (simplified CDF 9/7) decomposes the image into subbands. Green lines mark subband boundaries.</p>
       <div class="sc">
         <div class="cg2"><label>Levels:</label><select id="dL" onchange="rDWT()"><option value="1">1</option><option value="2" selected>2</option><option value="3">3</option></select></div>
         <button class="br" onclick="rDWT()">Decompose</button>
@@ -332,74 +297,55 @@ footer a { color: var(--accent); text-decoration: none; }
   <div id="p3" class="tp">
     <h3>3.7 Dead-Zone Scalar Quantization</h3>
     <div class="math"><span class="ml">Forward quantization</span>q<sub>b</sub>(i,j) = sign(a<sub>b</sub>(i,j)) · ⌊ |a<sub>b</sub>(i,j)| / Δ<sub>b</sub> ⌋</div>
-    <p>The dead zone around zero has width <span class="mi">2Δ_b</span> (twice normal bin width), aggressively zeroing small coefficients — the primary lossy compression mechanism.</p>
-
-    <h3>3.8 Step Size Parameterization</h3>
-    <div class="math"><span class="ml">Step size from header parameters</span>Δ<sub>b</sub> = 2<sup>R<sub>b</sub> − ε<sub>b</sub></sup> · (1 + μ<sub>b</sub> / 2<sup>11</sup>)<br><br>R<sub>b</sub> = nominal dynamic range of subband b<br>ε<sub>b</sub> ∈ {0, …, 31}   — exponent (5 bits)<br>μ<sub>b</sub> ∈ {0, …, 2047}  — mantissa (11 bits)</div>
-
-    <h3>3.9 Dequantization</h3>
-    <div class="math"><span class="ml">Reconstruction with offset δ</span>â<sub>b</sub>(i,j) = Δ<sub>b</sub> · (q<sub>b</sub>(i,j) + sign(q)·δ)   for q ≠ 0<br>â<sub>b</sub>(i,j) = 0                              for q = 0<br><br>δ ∈ (0, 1) is the reconstruction offset, typically δ = 0.5 (midpoint).</div>
-
-    <div class="def gr">
-      <div class="dt">Lossless Mode</div>
-      <p>Step sizes are set to <span class="mi">Δ_b = 1</span> for all subbands. Combined with the integer 5/3 DWT, every coefficient passes through EBCOT without any information loss.</p>
-    </div>
+    <p>Dead zone width is <span class="mi">2Δ_b</span>, aggressively zeroing small coefficients.</p>
+    <div class="math"><span class="ml">Step size from header parameters</span>Δ<sub>b</sub> = 2<sup>R<sub>b</sub> − ε<sub>b</sub></sup> · (1 + μ<sub>b</sub> / 2<sup>11</sup>)<br><br>ε<sub>b</sub> ∈ {0,…,31} (5 bits),  μ<sub>b</sub> ∈ {0,…,2047} (11 bits)</div>
+    <div class="math"><span class="ml">Dequantization</span>â<sub>b</sub>(i,j) = Δ<sub>b</sub> · (q<sub>b</sub>(i,j) + sign(q)·δ)  for q ≠ 0,  δ = 0.5 typically</div>
+    <p>In the Miyama et al. codec, the Q module performs both quantization and inverse quantization using reconfigurable logic, sharing hardware between encoding and decoding directions.</p>
   </div>
 
   <!-- EBCOT -->
   <div id="p4" class="tp">
-    <h3>3.10 EBCOT Architecture</h3>
-    <p>EBCOT (Taubman, 2000) operates in two tiers: <strong>Tier-1</strong> performs context-adaptive arithmetic coding per code-block; <strong>Tier-2</strong> performs global rate-distortion optimization across all blocks.</p>
+    <h3>3.8 EBCOT — The Computational Bottleneck</h3>
+    <p>EBCOT is the most complex stage of JPEG 2000. Each subband is partitioned into <strong>code-blocks</strong> (typically 32×32 in the Miyama codec, or 64×64 in standard implementations). Within each code-block, coefficients are coded <strong>bitplane by bitplane</strong> from MSB to LSB.</p>
 
-    <h4>Code-Block Partitioning</h4>
-    <p>Each subband is divided into <span class="mi">2<sup>n</sup> × 2<sup>m</sup></span> code-blocks (typically 64×64, constrained <span class="mi">n+m ≤ 12</span>). Independent coding enables fine-grained rate control and error resilience.</p>
+    <h4>Significance State</h4>
+    <p>A coefficient becomes <strong>significant</strong> on the bitplane where its first '1' appears when scanning from the MSB. This state propagates information to lower bitplanes and to neighboring coefficients — creating the dependency chain that makes parallelization challenging.</p>
 
-    <h4>Tier-1: Three Coding Passes per Bitplane</h4>
     <div class="def bl">
-      <div class="dt">Significance Propagation → Magnitude Refinement → Cleanup</div>
-      <p><strong>Pass 1 (Significance Propagation):</strong> Encodes bits of not-yet-significant samples with ≥1 significant 8-connected neighbor. Context: neighbor significance state.<br>
-      <strong>Pass 2 (Magnitude Refinement):</strong> Refines previously significant samples. Each bit halves the reconstruction interval width.<br>
-      <strong>Pass 3 (Cleanup):</strong> Encodes all remaining samples via run-length + MQ coding.</p>
+      <div class="dt">Three Coding Passes per Bitplane</div>
+      <p><strong>Significance Propagation (SP):</strong> Encodes not-yet-significant samples that have ≥1 significant 8-connected neighbor. The pass determination depends on significance states of all 8 surrounding coefficients.</p>
+      <p><strong>Magnitude Refinement (MR):</strong> Refines previously significant samples. Crucially, <em>MR does not change the significance state</em> — this property is exploited for parallelism.</p>
+      <p><strong>Cleanup (CU):</strong> Encodes all remaining samples via run-length + MQ coding.</p>
     </div>
 
-    <h3>3.11 MQ Arithmetic Coder</h3>
-    <div class="math"><span class="ml">Context formation for significance coding</span>κ<sup>sig</sup> = f(σ<sub>h</sub>, σ<sub>v</sub>, σ<sub>d</sub>)<br><br>σ<sub>h</sub> = # significant horizontal neighbors ∈ {0,1,2}<br>σ<sub>v</sub> = # significant vertical neighbors ∈ {0,1,2}<br>σ<sub>d</sub> = # significant diagonal neighbors ∈ {0,1,2,3,4}<br><br>→ 9 significance contexts (LL/LH) + 9 (HL) + 1 sign + 3 refinement = 19 total</div>
-    <p>The MQ coder adapts via a 47-state finite automaton per context, achieving near-entropy efficiency.</p>
+    <h3>3.9 Context Formation</h3>
+    <div class="math"><span class="ml">Significance context label</span>κ<sup>sig</sup> = f(σ<sub>h</sub>, σ<sub>v</sub>, σ<sub>d</sub>)<br><br>σ<sub>h</sub> = # significant horizontal neighbors ∈ {0,1,2}<br>σ<sub>v</sub> = # significant vertical neighbors ∈ {0,1,2}<br>σ<sub>d</sub> = # significant diagonal neighbors ∈ {0,…,4}<br><br>Neighbor layout around coefficient at position (i,j):<br>&nbsp;&nbsp;a b c<br>&nbsp;&nbsp;d · f<br>&nbsp;&nbsp;g h i<br><br>→ 9 significance ctx (LL/LH) + 9 (HL) + 1 sign + 3 refinement = 19 total</div>
+    <p>This 8-neighbor dependency is what makes the <strong>regular mode</strong> harder to parallelize than the <strong>vertically causal mode</strong>. In vertically causal mode, coefficients g, h, i (across stripe boundaries) are excluded from context formation, simplifying dependencies at a cost to image quality.</p>
 
-    <h3>3.12 Tier-2: PCRD Optimization</h3>
-    <div class="math"><span class="ml">Lagrangian optimization</span>minimize  D<sub>total</sub> = Σ<sub>i</sub> D<sub>i</sub>(n<sub>i</sub>)<br>subject to  Σ<sub>i</sub> R<sub>i</sub>(n<sub>i</sub>) ≤ R<sub>target</sub><br><br>Unconstrained form:  J = Σ<sub>i</sub> [ D<sub>i</sub>(n<sub>i</sub>) + λ · R<sub>i</sub>(n<sub>i</sub>) ]<br><br>i = code-block index,  n<sub>i</sub> = retained coding passes<br>D<sub>i</sub>(n) = MSE contribution after n passes<br>R<sub>i</sub>(n) = rate in bytes after n passes<br>λ = Lagrange multiplier (bisection search → R<sub>target</sub>)</div>
-    <p>The rate-distortion slopes <span class="mi">S = −ΔD/ΔR</span> are sorted globally across all code-blocks. Passes are included in decreasing slope order until the rate budget is exhausted — <strong>provably optimal</strong> for any target bitrate.</p>
+    <h3>3.10 Tier-2: PCRD Optimization</h3>
+    <div class="math"><span class="ml">Lagrangian rate-distortion optimization</span>J = Σ<sub>i</sub> [ D<sub>i</sub>(n<sub>i</sub>) + λ · R<sub>i</sub>(n<sub>i</sub>) ]<br><br>Rate-distortion slopes S = −ΔD/ΔR sorted globally across all code-blocks.<br>Passes included in decreasing slope order → provably optimal at any target bitrate.</div>
 
     <div class="sp">
       <h3>Bit-Plane Decomposition Viewer</h3>
-      <p style="font-size:0.88rem;color:var(--text-dim);">8×8 block of quantized coefficients. MSB (bit 7) captures coarse structure; each lower bitplane refines.</p>
+      <p style="font-size:.88rem;color:var(--text-dim);">8×8 block of quantized coefficients. Each bitplane is processed by 3 passes (SP → MR → CU).</p>
       <div class="sc">
         <div class="cg2"><label>Bitplane:</label><input type="range" id="bS" min="0" max="7" value="7" oninput="uBP()"></div>
         <span class="cv" id="bL">Bit 7 (MSB)</span>
       </div>
       <div id="bG" class="bpg"></div>
-      <p style="font-size:0.78rem;color:var(--text-muted);margin-top:0.8rem;">Shaded = 1. Top-left (low freq) has significant MSBs; bottom-right (high freq) is mostly zero — reflecting the natural energy decay in DWT subbands.</p>
     </div>
   </div>
 
   <!-- Bitstream -->
   <div id="p5" class="tp">
-    <h3>3.13 Codestream Organization</h3>
-    <p>Hierarchical structure: <span class="mi">Tiles → Tile-Parts → Packets → Code-Block Contributions</span>. Each packet aggregates data from one precinct, one resolution, one quality layer, one component.</p>
-
-    <h4>Progression Orders</h4>
+    <h3>3.11 Codestream Organization</h3>
+    <p>Structure: <span class="mi">Tiles → Tile-Parts → Packets → Code-Block Contributions</span>.</p>
     <div class="cg">
-      <div class="cd"><div class="ct bl">LRCP</div><h4>Quality Progressive</h4><p>Layer → Resolution → Component → Position. Each layer improves the entire image. Best for progressive quality refinement.</p></div>
-      <div class="cd"><div class="ct gr">RLCP</div><h4>Resolution Progressive</h4><p>Resolution → Layer → Component → Position. Low-res first, then adds detail. Ideal for thumbnail → full-size.</p></div>
-      <div class="cd"><div class="ct pu">RPCL</div><h4>Spatial Progressive</h4><p>Resolution → Position → Component → Layer. Enables decoding specific spatial regions per resolution level.</p></div>
+      <div class="cd"><div class="ct bl">LRCP</div><h4>Quality Progressive</h4><p>Layer-first. Each layer improves the entire image quality.</p></div>
+      <div class="cd"><div class="ct gr">RLCP</div><h4>Resolution Progressive</h4><p>Resolution-first. Low-res transmitted first for thumbnail preview.</p></div>
+      <div class="cd"><div class="ct pu">RPCL</div><h4>Spatial Progressive</h4><p>Position-indexed. Enables decoding specific spatial regions.</p></div>
     </div>
-
-    <h3>3.14 JPIP Interactive Protocol</h3>
-    <div class="math"><span class="ml">JPIP window request</span>Request = (f<sub>x</sub>, f<sub>y</sub>, f<sub>w</sub>, f<sub>h</sub>, r<sub>off</sub>, r<sub>siz</sub>, layers, comps)<br><br>(f<sub>x</sub>, f<sub>y</sub>, f<sub>w</sub>, f<sub>h</sub>) = spatial ROI window<br>r<sub>off</sub>, r<sub>siz</sub> = resolution range<br>layers = max quality layers<br>comps = component indices</div>
-    <p>JPIP enables browsing petapixel images without downloading the full file — the server streams only the requested packets.</p>
-
-    <h3>3.15 JP2 Container Format</h3>
-    <p>The <span class="mi">.jp2</span> file uses an ISOBMFF box structure: <span class="mi">jP</span> (signature), <span class="mi">ftyp</span> (file type), <span class="mi">jp2h</span> (header with ihdr + colr + res), <span class="mi">jp2c</span> (codestream). Supports embedded ICC profiles, XML metadata, and UUID extension boxes.</p>
+    <div class="math"><span class="ml">JPIP window request</span>Request = (f<sub>x</sub>, f<sub>y</sub>, f<sub>w</sub>, f<sub>h</sub>, r<sub>off</sub>, r<sub>siz</sub>, layers, comps)</div>
   </div>
 </section>
 </div>
@@ -409,25 +355,22 @@ footer a { color: var(--accent); text-decoration: none; }
 <section id="s4" class="reveal">
   <div class="sn">§4 — Interactive Simulator</div>
   <h2>Compression Pipeline Simulation</h2>
-  <p class="lead">Full encode → quantize → decode cycle using Haar wavelet (simplified CDF 9/7). Adjust parameters to observe rate-distortion tradeoffs.</p>
-
+  <p class="lead">Full encode → quantize → decode cycle using Haar wavelet (simplified CDF 9/7).</p>
   <div class="sp">
     <div class="sc">
       <div class="cg2"><label>Pattern:</label><select id="sP" onchange="rS()"><option value="face">Portrait</option><option value="gradient">Gradient</option><option value="checker">Checkerboard</option><option value="circles">Circles</option><option value="edges">Sharp Edges</option></select></div>
       <div class="cg2"><label>DWT Levels:</label><select id="sL" onchange="rS()"><option value="1">1</option><option value="2" selected>2</option><option value="3">3</option><option value="4">4</option></select></div>
-      <div class="cg2"><label>Δ (step):</label><input type="range" id="sQ" min="1" max="80" value="8" oninput="rS()"><span class="cv" id="sV">Δ=8</span></div>
+      <div class="cg2"><label>Δ:</label><input type="range" id="sQ" min="1" max="80" value="8" oninput="rS()"><span class="cv" id="sV">Δ=8</span></div>
       <button class="br" onclick="rS()">Compress</button>
     </div>
-
     <div class="cgr">
       <div class="cc"><canvas id="cO" width="256" height="256"></canvas><div class="cl">Original x(i,j)</div></div>
       <div class="cc"><canvas id="cR" width="256" height="256"></canvas><div class="cl">Reconstructed x̂(i,j)</div></div>
     </div>
     <div class="cgr">
-      <div class="cc"><canvas id="cC" width="256" height="256"></canvas><div class="cl">Quantized DWT Coefficients q_b(i,j)</div></div>
+      <div class="cc"><canvas id="cC" width="256" height="256"></canvas><div class="cl">Quantized DWT Coefficients</div></div>
       <div class="cc"><canvas id="cE" width="256" height="256"></canvas><div class="cl">Error |x − x̂| amplified 4×</div></div>
     </div>
-
     <div class="sr">
       <div class="si"><div class="sv" id="xP">—</div><div class="sl">PSNR (dB)</div></div>
       <div class="si"><div class="sv" id="xM">—</div><div class="sl">MSE</div></div>
@@ -436,151 +379,259 @@ footer a { color: var(--accent); text-decoration: none; }
       <div class="si"><div class="sv" id="xR">—</div><div class="sl">Est. Ratio</div></div>
       <div class="si"><div class="sv" id="xB">—</div><div class="sl">Est. BPP</div></div>
     </div>
-
-    <div class="math" style="margin-top:1.5rem;"><span class="ml">Quality Metrics</span>MSE = (1/N) · Σ [x(i,j) − x̂(i,j)]²<br>PSNR = 10 · log₁₀(255² / MSE)  dB<br>BPP = (estimated coded bits) / (W × H)</div>
   </div>
 </section>
 </div>
 
-<!-- §5 COMPARISON -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- §5 PARALLEL EBCOT — from Miyama et al. paper              -->
+<!-- ═══════════════════════════════════════════════════════════ -->
 <div class="wrap">
 <section id="s5" class="reveal">
-  <div class="sn">§5 — Comparative Analysis</div>
-  <h2>JPEG vs JPEG 2000 vs Modern Codecs</h2>
-  <table class="ctb">
-    <thead><tr><th style="width:22%">Feature</th><th style="width:22%">JPEG (1992)</th><th style="width:28%">JPEG 2000</th><th style="width:28%">HEIF / AVIF</th></tr></thead>
-    <tbody>
-      <tr><td><strong>Core Transform</strong></td><td>8×8 Block DCT</td><td class="hl">DWT (CDF 9/7 or Le Gall 5/3)</td><td>Variable-size block DCT+DST</td></tr>
-      <tr><td><strong>Lossless</strong></td><td>Separate (JPEG-LS)</td><td class="hl">Unified (5/3 DWT, Δ=1)</td><td>Available</td></tr>
-      <tr><td><strong>Progressive</strong></td><td>Spectral selection only</td><td class="hl">Res + Quality + Spatial (5 orders)</td><td>Limited</td></tr>
-      <tr><td><strong>ROI Coding</strong></td><td>None</td><td class="hl">MAXSHIFT + general scaling</td><td>None</td></tr>
-      <tr><td><strong>Low Bitrate (&lt;0.25 bpp)</strong></td><td>Heavy 8×8 blocking</td><td class="hl">Smooth, mild ringing</td><td>Good</td></tr>
-      <tr><td><strong>Error Resilience</strong></td><td>1 lost block = 64px</td><td class="hl">Independent code-blocks + SOP/EPH</td><td>Frame-level slices</td></tr>
-      <tr><td><strong>Bit Depth</strong></td><td>8 bpc</td><td class="hl">Up to 38 bpc</td><td>Typically 10 bpc</td></tr>
-      <tr><td><strong>Entropy Coder</strong></td><td>Huffman / Arithmetic</td><td>MQ Arithmetic (ctx-adaptive)</td><td>CABAC</td></tr>
-      <tr><td><strong>Decode Complexity</strong></td><td>~1× (baseline)</td><td>~5–10×</td><td>~8–15×</td></tr>
-      <tr><td><strong>HTJ2K Throughput</strong></td><td>—</td><td class="hl">Part 15: ≥ 1 Gpixel/s</td><td>—</td></tr>
-      <tr><td><strong>Primary Domain</strong></td><td>Web, photos</td><td>Cinema, medical, satellite</td><td>Web, mobile, HDR</td></tr>
-    </tbody>
+  <div class="sn">§5 — Parallel EBCOT Architecture</div>
+  <h2>Bit-Plane &amp; Pass Parallel Embedded Block Coder</h2>
+  <p class="lead">Based on M. Miyama et al. (Kanazawa University / Eizo Nanao Corp.) — a hardware architecture achieving 158 MS/s by parallelizing EBCOT across all bitplanes and all coding passes simultaneously.</p>
+
+  <h3>5.1 The EBCOT Bottleneck Problem</h3>
+  <p>In conventional EBCOT, bitplanes are coded <strong>sequentially</strong> from the MSB to the LSB. Within each bitplane, the three passes (SP → MR → CU) also execute sequentially. For a code-block with <span class="mi">M</span> bitplanes, each with 3 passes, the total latency is <span class="mi">3M × T_pass</span> — making EBCOT the throughput bottleneck of the entire JPEG 2000 pipeline.</p>
+
+  <div class="math"><span class="ml">Conventional EBCOT latency</span>T<sub>conventional</sub> = Σ<sub>m=0</sub><sup>M−1</sup> [ T<sub>SP</sub>(m) + T<sub>MR</sub>(m) + T<sub>CU</sub>(m) ]<br><br>All bitplanes and passes are strictly sequential.<br>For 10-bit coefficients with 32×32 code-blocks: M=10, ~30 sequential passes.</div>
+
+  <h3>5.2 Bit-Plane Parallel Method</h3>
+  <p>The key insight: bitplane <span class="mi">m</span> only depends on <strong>significance states</strong> computed on bitplane <span class="mi">m+1</span>. If the upper bitplane has a sufficient head start, the lower bitplane can begin coding while the upper is still in progress.</p>
+
+  <div class="def or">
+    <div class="dt">Bit-Plane Overlap with 1-Stripe, 1-Column Gap</div>
+    <p>All <span class="mi">M</span> bitplanes in a code-block are coded <strong>in parallel</strong>. An upper bitplane and a lower bitplane overlap in time with a gap of <strong>one stripe (4 rows) and one column</strong>. This gap is necessary because, in the regular mode, the significance state of bit <span class="mi">i</span> on the upper bitplane is needed for bit-modeling of bit <span class="mi">e</span> on the lower bitplane — where <span class="mi">i</span> is the diagonal neighbor one stripe and one column ahead.</p>
+    <div class="math"><span class="ml">Neighbor dependency (regular mode)</span>For coefficient at position (r, c) on bitplane m:<br>Requires significance of (r+1, c+1) on bitplane m+1<br><br>Layout:  a b c     ← stripe n-1<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; d e f     ← stripe n (current)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g h i     ← stripe n+1<br><br>Bit 'e' on bitplane#m needs state of bit 'i' from bitplane#(m+1)<br>→ 1-stripe + 1-column gap enables regular mode support</div>
+    <p>In <strong>vertically causal mode</strong>, neighbors g, h, i (across stripe boundaries) are excluded, so only a 1-column gap would suffice. However, regular mode provides better image quality, and the Miyama architecture supports both modes with the unified 1-stripe + 1-column gap.</p>
+  </div>
+
+  <h3>5.3 Pass Parallel Method</h3>
+  <p>Within each bitplane, the three coding passes (SP, MR, CU) are also overlapped in time with the same 1-stripe, 1-column gap:</p>
+
+  <div class="def bl">
+    <div class="dt">Pass Overlap Mechanism</div>
+    <p>For each stripe of 8 scanning bits: the pass determination step classifies bits into SP, MR, or CU. The SP pass scans the lower-right 4 bits while the MR+CU passes scan the upper-left 4 bits from the previous determination. The <strong>MR and CU passes can scan the same 4 bits simultaneously</strong> because the MR pass does not change the significance state — a crucial property that enables this parallelism.</p>
+    <div class="math"><span class="ml">Pass determination for 8 bits in a stripe column</span>Step k:  SP scans bits {4,5,6,7} from stripe n<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MR+CU scan bits {0,1,2,3} from stripe n<br><br>MR ∩ CU parallelism is safe because:<br>MR only refines magnitude of already-significant coefficients<br>→ significance state σ(i,j) is unchanged by MR<br>→ CU context formation is not affected</div>
+  </div>
+
+  <h3>5.4 Combined Speedup</h3>
+
+  <!-- TIMING DIAGRAM SIMULATION -->
+  <div class="timing-container">
+    <h3 style="margin-top:0">Timing Diagram: Conventional vs. Parallel</h3>
+    <p style="font-size:.88rem;color:var(--text-dim);margin-bottom:1rem">Interactive visualization showing how bit-plane and pass parallelism overlap execution across all bitplanes.</p>
+    <div class="sc">
+      <div class="cg2"><label>Bitplanes:</label><select id="tmBP" onchange="drawTiming()"><option value="6">6</option><option value="8">8</option><option value="10" selected>10</option></select></div>
+      <button class="br" onclick="drawTiming()">Redraw</button>
+    </div>
+    <canvas id="timingCanvas" class="timing-canvas" height="360"></canvas>
+    <div class="sr" style="border:none;padding-top:0;margin-top:1rem">
+      <div class="si"><div class="sv" id="tmConv">—</div><div class="sl">Conventional (cycles)</div></div>
+      <div class="si"><div class="sv" id="tmPar">—</div><div class="sl">Parallel (cycles)</div></div>
+      <div class="si"><div class="sv" id="tmSpeedup">—</div><div class="sl">Speedup</div></div>
+    </div>
+  </div>
+
+  <div class="math"><span class="ml">Parallel EBCOT latency (Miyama et al.)</span>T<sub>parallel</sub> ≈ T<sub>pass</sub> + (M − 1) · T<sub>gap</sub> + T<sub>pass</sub><br><br>where T<sub>gap</sub> = time to code 1 stripe + 1 column ≪ T<sub>pass</sub><br><br>Speedup ≈ 3M / (2 + (M−1) · T<sub>gap</sub>/T<sub>pass</sub>)<br>For M=10, T<sub>gap</sub>/T<sub>pass</sub> ≈ 1/8:  Speedup ≈ 30/3.125 ≈ 9.6×</div>
+
+  <h3>5.5 EBCOT Hardware Architecture</h3>
+  <p>The EBCOT consists of three main components:</p>
+  <div class="cg">
+    <div class="cd">
+      <div class="ct or">CBB</div>
+      <h4>Code-Block Buffer</h4>
+      <p>Stores quantized coefficients by code-block. Each bit-plane in a code-block is accessible in parallel — enabling all BPCs to read simultaneously.</p>
+    </div>
+    <div class="cd">
+      <div class="ct rd">EBC</div>
+      <h4>Embedded Block Coder</h4>
+      <p>Contains <span class="mi">M</span> Bit-Plane Coders (BPCs), one per bitplane. BPCs connect via FIFOs — upper BPC sends significance states and sign bits to lower BPC for self-synchronization.</p>
+    </div>
+    <div class="cd">
+      <div class="ct bl">CSB</div>
+      <h4>Code-Stream Buffer</h4>
+      <p>Stores coded bitstream for each pass on each bit-plane. Divided into areas corresponding to each bitplane for independent access.</p>
+    </div>
+  </div>
+
+  <h3>5.6 Bit-Plane Coder (BPC) Internal Architecture</h3>
+  <p>Each BPC processes one bitplane and contains the following pipeline stages:</p>
+
+  <div class="def gr">
+    <div class="dt">BPC Pipeline Stages</div>
+    <p><strong>SSB (Significance State Buffer):</strong> Stores significance states, sign bits, and quantized coefficients for <em>three stripes only</em> (not all stripes), reducing memory. Significance states use 2-bit encoding instead of the conventional 3-bit — states {0: not significant, 1: significant but not MR-scanned on same bitplane, 2: significant but not first-MR-modeled, 3: significant and first-MR-modeled}.</p>
+    <p><strong>PP (Pre-Processor):</strong> Determines the pass (SP/MR/CU) for each bit and sends neighbor states to FIFO.</p>
+    <p><strong>CXD (Context Generator):</strong> Generates (context, decision) pairs from neighbor states. At decoding, uses data from both PP and UPD module.</p>
+    <p><strong>MQC / MQD:</strong> MQ arithmetic encoder and decoder respectively. The MQD incorporates speculative decoding logic.</p>
+    <p><strong>UPD (Update):</strong> Updates significance states using decoded decisions. Handles both "past" states (from decoded bits) and "future" states (from PP speculation).</p>
+    <p><strong>SSW (State Writer):</strong> Writes back to SSB. At decoding, decoded states from MQD overwrite speculative states from PP.</p>
+  </div>
+
+  <div class="math"><span class="ml">FIFO-based self-synchronization</span>BPC[m+1] →<sub>FIFO</sub> BPC[m] →<sub>FIFO</sub> BPC[m−1] → ··· → BPC[0]<br><br>Data transferred per coefficient: {significance_state, sign_bit}<br>FIFO naturally handles rate mismatch between upper and lower BPC.<br>Upper coding always finishes before lower due to significance dependency.<br>No external synchronization controller needed.</div>
+
+  <h3>5.7 Speculative Decoding</h3>
+  <p>The decoder faces a critical problem: at decoding, the neighbor significance states needed for context formation are only known <strong>after</strong> decoding the previous bit — creating a serial dependency. The Miyama architecture breaks this with two speculative techniques:</p>
+
+  <div class="def pu">
+    <div class="dt">Speculation Method 1: SP Pass Pre-computation</div>
+    <p>For bits <em>possibly</em> modeled by the SP pass (bits neighboring a significant coefficient, but whose own state and all neighbors are not yet significant), the PP speculatively sends neighbor states to FIFO <strong>before</strong> the previous bit finishes decoding. If the previous bit becomes significant after decoding, the MQD proceeds with actual decoding. If not, MQD informs SSW that the bit was not SP-modeled (deferred to CU pass).</p>
+  </div>
+
+  <div class="def pu">
+    <div class="dt">Speculation Method 2: Successive-Bit Context Prediction</div>
+    <p>When two successive bits of the same pass are decoded, the CXD generates the lower bit's context <strong>assuming the upper bit is not significant</strong>. If the upper bit turns out to be significant, the context is <em>modified inside the MQ decoder</em> — not regenerated from scratch. This avoids re-reading neighbor states and keeps the pipeline flowing.</p>
+    <div class="math"><span class="ml">Speculative context pipeline</span>Stage S0: Pass Determination (bit n)<br>Stage S1: CX Generation (bit n) — speculative, assumes bit n−1 non-significant<br>Stage S2: MQ Decode (bit n) — may modify context if bit n−1 was significant<br>Stage S3: Update (bit n)<br><br>Without speculation: pipeline stalls at S1 waiting for S2 of bit n−1<br>With speculation: 1 sample per cycle throughput achieved</div>
+    <p>The key insight is that <strong>modifying a context</strong> within the MQ decoder is simpler than regenerating the true context from 8 neighbor significance states. Re-calculation and MQ decoding can fit in the same pipeline stage, so the decode pipeline never stalls.</p>
+  </div>
+
+  <h3>5.8 2-Bit Significance State Encoding</h3>
+  <p>Conventional implementations use 3 bits for significance state. The Miyama architecture reduces this to 2 bits, cutting SSB memory by 33%:</p>
+  <div class="math"><span class="ml">Optimized 2-bit significance states</span>State 0: Not significant<br>State 1: Significant, not yet scanned by MR on the bitplane where SP made it significant<br>State 2: Significant, not yet modeled by the first MR pass<br>State 3: Significant, has been modeled by the first MR pass</div>
+
+  <h3>5.9 Codec LSI Implementation</h3>
+  <table class="chip-table">
+    <tr><td>Function</td><td>JPEG 2000 codec, <strong>regular mode</strong> supported</td></tr>
+    <tr><td>Performance</td><td><strong>158 M-Sample/s</strong> (1 sample per clock cycle)</td></tr>
+    <tr><td>Frequency</td><td>160 MHz</td></tr>
+    <tr><td>Process</td><td>0.18 µm, 6 metal layers</td></tr>
+    <tr><td>Core Area</td><td>4.7 × 4.7 mm²</td></tr>
+    <tr><td>Gate Count</td><td>1,084 k gates</td></tr>
+    <tr><td>Power</td><td>1.5 W (estimated)</td></tr>
+    <tr><td>Code-Block Size</td><td>32 × 32 pixels</td></tr>
+    <tr><td>Tile Size</td><td>128 × 128 pixels</td></tr>
+    <tr><td>Video Capability</td><td>HD 1920×1080 @30fps YCbCr 4:2:2 (124 MS/s)<br>SXGA 1280×1024 @60fps YCbCr 4:2:2 (158 MS/s)</td></tr>
+    <tr><td>Application</td><td>Wireless PC display with real-time encode/decode</td></tr>
   </table>
+
+  <div class="def or">
+    <div class="dt">Codec System Architecture (Fig. 8 from paper)</div>
+    <p>The full codec contains: <strong>VIO I/F</strong> (video I/O interface) → <strong>ITRAN</strong> module (CCNV color converter + LB line buffer + DWT + WB wavelet buffer + Q quantizer) → <strong>EBCOT</strong> (CBB + BM bit-modeling + MQC/MQD + CSB) → <strong>CPU I/F</strong>. All circuits are <strong>reconfigurable</strong> for bidirectional operation (encode and decode share logic), reducing gate count. The external CPU controller performs rate-distortion optimization and progressive quality enhancement across tile boundaries.</p>
+  </div>
+
   <div class="def rd">
-    <div class="dt">Rate-Distortion Performance Note</div>
-    <p>At ≥1 bpp, JPEG and JP2K perform similarly. Below 0.5 bpp, JP2K provides 2–4 dB higher PSNR. Modern codecs (AVIF/HEIF) match JP2K via intra prediction but lack progressive/ROI capabilities.</p>
+    <div class="dt">Comparison with Prior Work</div>
+    <p><strong>Yamauchi et al. [2]:</strong> Two-BPC parallel, but fails when most bits on upper bitplane use CU pass and lower bitplane uses MR pass (common case). <strong>Fang et al. [3][4]:</strong> Word-level parallelism, but pipeline stalls at decoding because neighbor states are unknown until previous bit is decoded. Supports only vertically causal mode. <strong>Miyama et al.:</strong> Full bitplane + pass parallelism, supports regular mode (better quality), speculative decoding prevents pipeline stalls → 158 MS/s (vs. 81 MS/s in [3]).</p>
   </div>
 </section>
 </div>
 
-<!-- §6 ML ERA -->
+<!-- §6 COMPARISON -->
 <div class="wrap">
 <section id="s6" class="reveal">
-  <div class="sn">§6 — Machine Learning Era</div>
+  <div class="sn">§6 — Comparative Analysis</div>
+  <h2>JPEG vs JPEG 2000 vs Modern Codecs</h2>
+  <table class="ctb">
+    <thead><tr><th style="width:22%">Feature</th><th style="width:22%">JPEG</th><th style="width:28%">JPEG 2000</th><th style="width:28%">HEIF / AVIF</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Core Transform</strong></td><td>8×8 Block DCT</td><td class="hl">DWT (CDF 9/7 / 5/3)</td><td>Variable block DCT+DST</td></tr>
+      <tr><td><strong>Lossless</strong></td><td>Separate (JPEG-LS)</td><td class="hl">Unified (5/3, Δ=1)</td><td>Available</td></tr>
+      <tr><td><strong>Progressive</strong></td><td>Spectral only</td><td class="hl">Res+Quality+Spatial</td><td>Limited</td></tr>
+      <tr><td><strong>ROI Coding</strong></td><td>None</td><td class="hl">MAXSHIFT + scaling</td><td>None</td></tr>
+      <tr><td><strong>Low Bitrate</strong></td><td>Heavy blocking</td><td class="hl">Smooth, mild ringing</td><td>Good</td></tr>
+      <tr><td><strong>Error Resilience</strong></td><td>Block-level</td><td class="hl">Code-block independent</td><td>Frame-level</td></tr>
+      <tr><td><strong>Bit Depth</strong></td><td>8 bpc</td><td class="hl">Up to 38 bpc</td><td>~10 bpc</td></tr>
+      <tr><td><strong>HW Throughput</strong></td><td>Very high</td><td class="hl">158 MS/s (Miyama)</td><td>Moderate</td></tr>
+      <tr><td><strong>Domain</strong></td><td>Web, photos</td><td>Cinema, medical, satellite</td><td>Web, mobile</td></tr>
+    </tbody>
+  </table>
+</section>
+</div>
+
+<!-- §7 ML ERA -->
+<div class="wrap">
+<section id="s7" class="reveal">
+  <div class="sn">§7 — Machine Learning Era</div>
   <h2>JPEG 2000 in Modern AI Pipelines</h2>
   <p class="lead">JP2K intersects ML as both competitor (learned compression) and complement (efficient features, domain-specific workflows).</p>
 
   <div class="mi2">
     <h3><span class="mn">1</span> Learned Image Compression vs. JP2K</h3>
     <p>Neural codecs (Ballé 2018, Cheng 2020, ELIC 2022) replace DWT + EBCOT with end-to-end learned components:</p>
-    <div class="math"><span class="ml">Neural Codec Framework</span>y = g<sub>a</sub>(x; θ)       — analysis transform (encoder CNN/ViT)<br>ŷ = Q(y)                — quantization (uniform + additive noise during training)<br>x̂ = g<sub>s</sub>(ŷ; φ)       — synthesis transform (decoder CNN/ViT)<br><br><span class="ml">Rate-Distortion Training Loss</span>L = R(ŷ) + λ·D(x, x̂) = 𝔼[−log₂ p<sub>ŷ</sub>(ŷ)] + λ·‖x − x̂‖²<br><br>p<sub>ŷ</sub> = learned entropy model (hyperprior + autoregressive context model)<br>λ controls the rate-distortion tradeoff along the Pareto frontier</div>
-    <p>State-of-the-art neural codecs achieve 20–40% bitrate savings over JP2K at equivalent PSNR. However, they require GPU decode, lack standardization, have no progressive/ROI capability, and cannot guarantee lossless compression — JP2K remains dominant where these matter.</p>
+    <div class="math"><span class="ml">Neural Codec Framework</span>y = g<sub>a</sub>(x; θ) — analysis transform (CNN/ViT)<br>ŷ = Q(y) — quantization<br>x̂ = g<sub>s</sub>(ŷ; φ) — synthesis transform<br><br><span class="ml">Rate-Distortion Loss</span>L = 𝔼[−log₂ p<sub>ŷ</sub>(ŷ)] + λ·‖x − x̂‖²</div>
+    <p>Neural codecs save 20–40% bitrate over JP2K, but require GPU, lack progressive/ROI capability, and cannot guarantee lossless compression. High-throughput hardware JP2K (158 MS/s) remains competitive for latency-critical applications like the wireless PC display targeted by the Miyama codec.</p>
   </div>
 
   <div class="mi2">
     <h3><span class="mn">2</span> DWT as Neural Network Feature Extraction</h3>
-    <p>Wavelet subbands are mathematically equivalent to fixed convolutional filter banks with stride-2 downsampling — structurally identical to a CNN's first layer:</p>
-    <div class="math"><span class="ml">Equivalence</span>LL = (h<sub>lo</sub> ⊛ x) ↓2  ≡  Conv2d(C, C, k=5, stride=2, weights=h<sub>lo</sub>)<br>LH = (h<sub>hi</sub> ⊛ x) ↓2  ≡  Conv2d(C, C, k=5, stride=2, weights=h<sub>hi</sub>)<br><br><span class="ml">Advantage over max-pooling</span>DWT: preserves spatial structure + frequency separation (invertible)<br>MaxPool: discards position + high-frequency info (irreversible)</div>
-    <p><strong>WaveCNet</strong> (Li et al., 2020) replaces all pooling with DWT → noise-robust classification. <strong>Wavelet Scattering</strong> (Mallat, 2012) cascades DWT + modulus → provably Lipschitz-continuous, translation-invariant features.</p>
+    <div class="math"><span class="ml">DWT ≡ Fixed Conv + Stride-2</span>LL = (h<sub>lo</sub> ⊛ x) ↓2  ≡  Conv2d(C, C, k=5, stride=2, weights=h<sub>lo</sub>)<br><br>DWT preserves spatial + frequency info (invertible)<br>MaxPool discards position + high-freq (irreversible)</div>
+    <p><strong>WaveCNet</strong> (Li 2020) replaces pooling with DWT for noise-robust classification. <strong>Wavelet Scattering</strong> (Mallat 2012) provides provably Lipschitz features.</p>
   </div>
 
   <div class="mi2">
     <h3><span class="mn">3</span> Video Coding for Machines (MPEG-VCM)</h3>
-    <p>Compression optimized for machine consumption (detection, segmentation) rather than human viewing. JP2K's progressive structure is a natural fit:</p>
-    <div class="math"><span class="ml">Task-Aware Progressive Decoding</span>Res-0 (LL only, 1/2<sup>L</sup> scale):  Object detection → ~90% mAP, ~3% bandwidth<br>Res-1 (+LH₁,HL₁,HH₁):  Improved localization<br>Res-2 (+LH₂,HL₂,HH₂):  Fine segmentation masks<br>Full resolution:          Human verification / archival</div>
+    <div class="math"><span class="ml">Task-Aware Progressive Decoding</span>LL only (1/2<sup>L</sup> scale): Detection → ~90% mAP, ~3% bandwidth<br>+LH₁,HL₁,HH₁: Improved localization<br>Full resolution: Human verification</div>
+    <p>JPIP enables this workflow natively. The Miyama codec's regular mode support ensures no quality degradation from vertically causal artifacts in the transmitted subbands.</p>
   </div>
 
   <div class="mi2">
-    <h3><span class="mn">4</span> Medical Imaging & Federated Learning</h3>
-    <p>JP2K lossless is mandatory in DICOM for radiological archival. For federated learning across hospitals, lossless compression eliminates codec-induced domain shift:</p>
-    <div class="math"><span class="ml">Domain Shift from Lossy Codecs</span>P(x | site_A, JPEG_q85) ≠ P(x | site_B, JPEG_q92) ≠ P(x | site_C, lossless)<br><br>JP2K lossless guarantees:<br>P(x | any_site, JP2K_lossless) = P(x | original)<br>→ compression is eliminated as a confounding variable across federated sites</div>
-    <p>Whole-slide pathology images (100K×100K px) use JP2K + JPIP for tile-based access during both clinical review and ML training.</p>
+    <h3><span class="mn">4</span> Medical Imaging &amp; Federated Learning</h3>
+    <div class="math"><span class="ml">Eliminating codec-induced domain shift</span>JP2K lossless: P(x | any_site) = P(x | original)<br>→ Compression is not a confounding variable in federated training</div>
   </div>
 
   <div class="mi2">
-    <h3><span class="mn">5</span> Neural Post-Processing of JP2K Artifacts</h3>
-    <p>JP2K produces ringing (Gibbs-like oscillations) near edges instead of blocking. DNNs can be trained as post-filters:</p>
-    <div class="math"><span class="ml">Artifact Removal Training</span>x̂<sub>enh</sub> = f<sub>θ</sub>(x̂<sub>JP2K</sub>)<br><br>L = ‖f<sub>θ</sub>(Decode(Encode(x, Δ))) − x‖₁ + λ<sub>p</sub>·‖φ(f<sub>θ</sub>(·)) − φ(x)‖₂<br><br>φ = VGG perceptual features<br>Architectures: DnCNN, SwinIR, Restormer, HAT<br>Typical gain: +1.5 to +3.0 dB PSNR at 0.25 bpp</div>
+    <h3><span class="mn">5</span> Neural Post-Processing &amp; Satellite ML</h3>
+    <div class="math"><span class="ml">JP2K artifact removal</span>x̂<sub>enh</sub> = f<sub>θ</sub>(x̂<sub>JP2K</sub>)<br>L = ‖f<sub>θ</sub>(·) − x‖₁ + λ<sub>p</sub>·‖φ(f<sub>θ</sub>(·)) − φ(x)‖₂<br>Typical gain: +1.5 to +3.0 dB at 0.25 bpp</div>
+    <div class="math"><span class="ml">Satellite I/O savings via JP2K partial decode</span>Full tile: ~3 GB → Partial decode (256×256, 3 bands): ~150 KB<br>Training I/O reduction: ~20,000× per sample</div>
   </div>
 
   <div class="mi2">
-    <h3><span class="mn">6</span> Satellite & Geospatial ML at Scale</h3>
-    <p>Earth observation satellites (Sentinel-2, Landsat-9, GOES) store multispectral imagery in JP2K. Partial decode via JPIP reduces training I/O dramatically:</p>
-    <div class="math"><span class="ml">I/O Savings</span>Full tile: 10,980 × 10,980 × 13 bands × 16 bit ≈ 3 GB<br>Partial decode (256×256 crop, 3 bands, layer 2): ~150 KB<br>Training I/O reduction: ~20,000× per sample</div>
-    <p>Frameworks like <strong>rasterio</strong> and <strong>GDAL</strong> exploit JP2K codestream structure for efficient windowed reads at petabyte scale.</p>
+    <h3><span class="mn">6</span> Hardware-Accelerated JP2K in ML Pipelines</h3>
+    <p>The Miyama codec's <strong>158 MS/s throughput at 1.5W</strong> represents a compelling alternative to GPU-based neural codecs in edge ML scenarios. For embedded vision systems (autonomous vehicles, drones, medical devices), JP2K hardware provides deterministic latency, low power, and standardized interoperability that neural codecs cannot match. The regular mode support ensures diagnostic-quality encoding for medical AI inference, while the JPIP-compatible progressive bitstream enables bandwidth-adaptive transmission for remote ML inference servers.</p>
   </div>
 
   <h3 style="margin-top:3rem;">Code: DWT Pooling Layer for PyTorch</h3>
   <div class="cpn">
-    <div class="ch">wavelet_pooling.py</div>
-<span class="kw">import</span> torch
-<span class="kw">import</span> torch.nn <span class="kw">as</span> nn
-<span class="kw">import</span> pywt
+    <div class="ch">wavelet_pooling.py — drop-in replacement for MaxPool2d</div>
+<span class="kw">import</span> torch, torch.nn <span class="kw">as</span> nn, pywt
 
 <span class="kw">class</span> <span class="ty">DWTPooling</span>(nn.Module):
-    <span class="cm">"""Drop-in replacement for MaxPool2d using DWT.</span>
-<span class="cm">    Outputs 4× channels at half spatial resolution.</span>
-<span class="cm">    bior4.4 ≈ CDF 9/7 used in JPEG 2000 lossy mode."""</span>
-
+    <span class="cm">"""Replace MaxPool2d with DWT (bior4.4 ≈ CDF 9/7).</span>
+<span class="cm">    Output: 4× channels, half spatial resolution."""</span>
     <span class="kw">def</span> <span class="fn">__init__</span>(self, wavelet=<span class="str">'bior4.4'</span>):
         <span class="kw">super</span>().__init__()
         w = pywt.Wavelet(wavelet)
         self.<span class="fn">register_buffer</span>(<span class="str">'lo'</span>, torch.tensor(w.dec_lo, dtype=torch.float32))
         self.<span class="fn">register_buffer</span>(<span class="str">'hi'</span>, torch.tensor(w.dec_hi, dtype=torch.float32))
 
-    <span class="kw">def</span> <span class="fn">_filt</span>(self, x, filt_row, filt_col):
-        B, C, H, W = x.shape
-        K = filt_row.shape[<span class="num">0</span>]; pad = K // <span class="num">2</span>
-        <span class="cm"># Row filter</span>
-        xp = nn.functional.<span class="fn">pad</span>(x, [pad,pad], mode=<span class="str">'reflect'</span>)
-        kr = filt_row[None,None,:,None].expand(C,<span class="num">1</span>,-<span class="num">1</span>,-<span class="num">1</span>)
-        r = nn.functional.<span class="fn">conv2d</span>(xp, kr, groups=C)[..., ::<span class="num">2</span>]
-        <span class="cm"># Col filter</span>
-        rp = nn.functional.<span class="fn">pad</span>(r, [<span class="num">0</span>,<span class="num">0</span>,pad,pad], mode=<span class="str">'reflect'</span>)
-        kc = filt_col[None,None,None,:].expand(C,<span class="num">1</span>,-<span class="num">1</span>,-<span class="num">1</span>)
-        <span class="kw">return</span> nn.functional.<span class="fn">conv2d</span>(rp, kc, groups=C)[:,:,::<span class="num">2</span>,:]
+    <span class="kw">def</span> <span class="fn">_filt</span>(self, x, fr, fc):
+        B,C,H,W = x.shape; K=fr.shape[<span class="num">0</span>]; p=K//<span class="num">2</span>
+        xp = nn.functional.<span class="fn">pad</span>(x, [p,p], mode=<span class="str">'reflect'</span>)
+        r = nn.functional.<span class="fn">conv2d</span>(xp, fr[None,None,:,None].expand(C,<span class="num">1</span>,-<span class="num">1</span>,-<span class="num">1</span>), groups=C)[..., ::<span class="num">2</span>]
+        rp = nn.functional.<span class="fn">pad</span>(r, [<span class="num">0</span>,<span class="num">0</span>,p,p], mode=<span class="str">'reflect'</span>)
+        <span class="kw">return</span> nn.functional.<span class="fn">conv2d</span>(rp, fc[None,None,None,:].expand(C,<span class="num">1</span>,-<span class="num">1</span>,-<span class="num">1</span>), groups=C)[:,:,::<span class="num">2</span>,:]
 
     <span class="kw">def</span> <span class="fn">forward</span>(self, x):
-        <span class="cm"># Returns (B, 4C, H/2, W/2) — LL, LH, HL, HH concatenated</span>
-        LL = self.<span class="fn">_filt</span>(x, self.lo, self.lo)  <span class="cm"># approximation</span>
-        LH = self.<span class="fn">_filt</span>(x, self.lo, self.hi)  <span class="cm"># horizontal detail</span>
-        HL = self.<span class="fn">_filt</span>(x, self.hi, self.lo)  <span class="cm"># vertical detail</span>
-        HH = self.<span class="fn">_filt</span>(x, self.hi, self.hi)  <span class="cm"># diagonal detail</span>
-        <span class="kw">return</span> torch.<span class="fn">cat</span>([LL, LH, HL, HH], dim=<span class="num">1</span>)
-
-<span class="cm"># Usage</span>
-model = nn.<span class="fn">Sequential</span>(
-    nn.<span class="fn">Conv2d</span>(<span class="num">3</span>, <span class="num">64</span>, <span class="num">3</span>, padding=<span class="num">1</span>), nn.<span class="fn">ReLU</span>(),
-    <span class="ty">DWTPooling</span>(<span class="str">'bior4.4'</span>),                  <span class="cm"># 64 → 256ch, H/2×W/2</span>
-    nn.<span class="fn">Conv2d</span>(<span class="num">256</span>, <span class="num">128</span>, <span class="num">3</span>, padding=<span class="num">1</span>), nn.<span class="fn">ReLU</span>(),
-    nn.<span class="fn">AdaptiveAvgPool2d</span>(<span class="num">1</span>), nn.<span class="fn">Flatten</span>(),
-    nn.<span class="fn">Linear</span>(<span class="num">128</span>, <span class="num">10</span>),
-)
+        <span class="kw">return</span> torch.<span class="fn">cat</span>([
+            self.<span class="fn">_filt</span>(x, self.lo, self.lo),  <span class="cm"># LL</span>
+            self.<span class="fn">_filt</span>(x, self.lo, self.hi),  <span class="cm"># LH</span>
+            self.<span class="fn">_filt</span>(x, self.hi, self.lo),  <span class="cm"># HL</span>
+            self.<span class="fn">_filt</span>(x, self.hi, self.hi),  <span class="cm"># HH</span>
+        ], dim=<span class="num">1</span>)
   </div>
 </section>
 </div>
 
 <footer>
-  <p>JPEG 2000 Technical Reference · ISO/IEC 15444-1 · <a href="https://jpeg.org/jpeg2000/" target="_blank">jpeg.org/jpeg2000</a></p>
-  <p style="margin-top:0.4rem;">Simulations use Haar wavelet for pedagogical clarity. Production JP2K uses CDF 9/7 (lossy) and Le Gall 5/3 (lossless).</p>
+  <p>JPEG 2000 Technical Reference · ISO/IEC 15444-1 · <a href="https://jpeg.org/jpeg2000/" target="_blank">jpeg.org</a></p>
+  <p style="margin-top:.3rem">Parallel EBCOT architecture: M. Miyama et al., Kanazawa University / Eizo Nanao Corp.</p>
+  <p style="margin-top:.3rem">Simulations use Haar wavelet for pedagogical clarity. Production JP2K uses CDF 9/7 and Le Gall 5/3.</p>
 </footer>
 
 <script>
+// ── Tabs ──
 function stab(btn,id){
   btn.closest('section').querySelectorAll('.tb').forEach(b=>b.classList.remove('a'));
   btn.closest('section').querySelectorAll('.tp').forEach(p=>p.classList.remove('a'));
-  btn.classList.add('a'); document.getElementById(id).classList.add('a');
+  btn.classList.add('a');document.getElementById(id).classList.add('a');
 }
-const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('vis')})},{threshold:0.08});
+
+// ── Scroll reveal ──
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('vis')})},{threshold:.08});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
+// ── Pattern generator ──
 function gP(n,N){const d=new Float64Array(N*N);for(let y=0;y<N;y++)for(let x=0;x<N;x++){let v=0;switch(n){
 case'face':{const cx=N/2,cy=N/2.2,r=N/3.5,di=Math.sqrt((x-cx)**2+(y-cy)**2);v=di<r?200-di*1.2:50+Math.sin(x*.08)*15;const el=Math.sqrt((x-cx+N/8)**2+(y-cy+N/12)**2),er=Math.sqrt((x-cx-N/8)**2+(y-cy+N/12)**2);if(el<N/18||er<N/18)v=35;v+=Math.sin(x*.25)*Math.cos(y*.25)*10;break}
 case'gradient':v=(x+y)/(2*N)*255;break;
@@ -589,6 +640,7 @@ case'circles':{let s=0;for(let i=0;i<6;i++){const dd=Math.sqrt((x-N*(.15+i*.14))
 case'edges':v=30;if(y>N*.2&&y<N*.8){if(x>N*.08&&x<N*.14)v=220;if(x>N*.08&&x<N*.32&&y>N*.48&&y<N*.54)v=220;if(x>N*.38&&x<N*.62){if(y>N*.2&&y<N*.27)v=220;if(y>N*.48&&y<N*.54)v=220;if(y>N*.73&&y<N*.8)v=220}if(x>N*.38&&x<N*.44&&y>N*.2&&y<N*.54)v=220;if(x>N*.68&&x<N*.74)v=220;if(x>N*.68&&x<N*.92&&y>N*.73&&y<N*.8)v=220;const dr=Math.sqrt((x-N*.8)**2+(y-N*.46)**2);if(dr>N*.1&&dr<N*.16&&y<N*.46)v=220}break}
 d[y*N+x]=Math.max(0,Math.min(255,v))}return d}
 
+// ── Haar DWT ──
 function h2(d,N){const o=new Float64Array(d),t=new Float64Array(N);
 for(let y=0;y<N;y++){const h=N/2;for(let x=0;x<h;x++){const a=o[y*N+2*x],b=o[y*N+2*x+1];t[x]=(a+b)/2;t[h+x]=(a-b)/2}for(let x=0;x<N;x++)o[y*N+x]=t[x]}
 for(let x=0;x<N;x++){const h=N/2;for(let y=0;y<h;y++){const a=o[2*y*N+x],b=o[(2*y+1)*N+x];t[y]=(a+b)/2;t[h+y]=(a-b)/2}for(let y=0;y<N;y++)o[y*N+x]=t[y]}return o}
@@ -598,14 +650,15 @@ for(let y=0;y<N;y++){const h=N/2;for(let x=0;x<h;x++){const a=o[y*N+x],e=o[y*N+h
 function mD(d,N,L){let r=new Float64Array(d),s=N;for(let l=0;l<L;l++){const b=new Float64Array(s*s);for(let y=0;y<s;y++)for(let x=0;x<s;x++)b[y*s+x]=r[y*N+x];const tr=h2(b,s);for(let y=0;y<s;y++)for(let x=0;x<s;x++)r[y*N+x]=tr[y*s+x];s/=2}return r}
 function mI(d,N,L){let r=new Float64Array(d),s=N/Math.pow(2,L-1);for(let l=L-1;l>=0;l--){const b=new Float64Array(s*s);for(let y=0;y<s;y++)for(let x=0;x<s;x++)b[y*s+x]=r[y*N+x];const iv=ih2(b,s);for(let y=0;y<s;y++)for(let x=0;x<s;x++)r[y*N+x]=iv[y*s+x];s*=2}return r}
 
+// ── Draw helpers ──
 function dG(id,d,N){const c=document.getElementById(id);c.width=N;c.height=N;const ctx=c.getContext('2d'),img=ctx.createImageData(N,N);for(let i=0;i<N*N;i++){const v=Math.max(0,Math.min(255,Math.round(d[i])));img.data[4*i]=v;img.data[4*i+1]=v;img.data[4*i+2]=v;img.data[4*i+3]=255}ctx.putImageData(img,0,0)}
 function dC(id,d,N){const c=document.getElementById(id);c.width=N;c.height=N;const ctx=c.getContext('2d'),img=ctx.createImageData(N,N);let mx=0;for(let i=0;i<N*N;i++)mx=Math.max(mx,Math.abs(d[i]));if(!mx)mx=1;for(let i=0;i<N*N;i++){const n=d[i]/mx;let r,g,b;if(n>=0){r=Math.round(245-n*100);g=Math.round(245-n*120);b=Math.round(245-n*50)}else{r=Math.round(245+n*60);g=Math.round(245+n*140);b=Math.round(245+n*120)}img.data[4*i]=r;img.data[4*i+1]=g;img.data[4*i+2]=b;img.data[4*i+3]=255}ctx.putImageData(img,0,0)}
 function dE(id,o,r,N){const c=document.getElementById(id);c.width=N;c.height=N;const ctx=c.getContext('2d'),img=ctx.createImageData(N,N);for(let i=0;i<N*N;i++){const e=Math.min(255,Math.round(Math.abs(o[i]-r[i])*4));let R=240,G=240,B=240;if(e>5){R=Math.min(255,120+e);G=Math.max(60,200-e);B=Math.max(50,180-e)}img.data[4*i]=R;img.data[4*i+1]=G;img.data[4*i+2]=B;img.data[4*i+3]=255}ctx.putImageData(img,0,0)}
 
+// ── Simulator ──
 function rS(){const N=256,p=document.getElementById('sP').value,L=+document.getElementById('sL').value,Q=+document.getElementById('sQ').value;
 document.getElementById('sV').textContent='Δ='+Q;
-const orig=gP(p,N);dG('cO',orig,N);
-const co=mD(orig,N,L);const qc=new Float64Array(co.length);let nz=0,zr=0;
+const orig=gP(p,N);dG('cO',orig,N);const co=mD(orig,N,L);const qc=new Float64Array(co.length);let nz=0,zr=0;
 for(let i=0;i<co.length;i++){qc[i]=Math.round(co[i]/Q)*Q;if(Math.abs(qc[i])>0)nz++;else zr++}
 dC('cC',qc,N);const rec=mI(qc,N,L);dG('cR',rec,N);dE('cE',orig,rec,N);
 let mse=0;for(let i=0;i<N*N;i++)mse+=(orig[i]-rec[i])**2;mse/=N*N;
@@ -615,6 +668,7 @@ document.getElementById('xP').textContent=psnr;document.getElementById('xM').tex
 document.getElementById('xN').textContent=nz.toLocaleString();document.getElementById('xZ').textContent=zr.toLocaleString();
 document.getElementById('xR').textContent=ratio+':1';document.getElementById('xB').textContent=bpp}
 
+// ── DWT viewer ──
 function rDWT(){const N=256,L=+document.getElementById('dL').value;const orig=gP('face',N);dG('dI',orig,N);
 const co=mD(orig,N,L);dC('dO',co,N);
 const c=document.getElementById('dO'),ctx=c.getContext('2d');ctx.strokeStyle='rgba(45,125,70,0.7)';ctx.lineWidth=1.5;
@@ -622,13 +676,132 @@ let s=N;for(let l=0;l<L;l++){s/=2;ctx.beginPath();ctx.moveTo(s,0);ctx.lineTo(s,s
 ctx.font='600 10px "IBM Plex Mono"';ctx.fillStyle='rgba(45,125,70,0.9)';const ll=N/Math.pow(2,L);
 ctx.fillText('LL',ll/2-6,ll/2+4);ctx.fillText('HL',ll+ll/2-6,ll/2+4);ctx.fillText('LH',ll/2-6,ll+ll/2+4);ctx.fillText('HH',ll+ll/2-7,ll+ll/2+4)}
 
+// ── Bitplane viewer ──
 function uBP(){const bp=+document.getElementById('bS').value;
 document.getElementById('bL').textContent=bp===7?'Bit 7 (MSB)':bp===0?'Bit 0 (LSB)':'Bit '+bp;
 const g=document.getElementById('bG');g.innerHTML='';
 const sc=[120,45,-30,12,-5,2,0,1,-55,32,-18,8,-3,1,0,0,28,-15,10,-6,2,-1,0,0,-12,7,-4,3,-1,0,0,0,5,-3,2,-1,0,0,0,0,-2,1,-1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 sc.forEach(c=>{const bit=(Math.abs(c)>>bp)&1;const el=document.createElement('div');el.className='bpc '+(bit?'on':'off');el.textContent=bit;el.title='|c|='+Math.abs(c)+', bit '+bp+'='+bit;g.appendChild(el)})}
 
-document.addEventListener('DOMContentLoaded',()=>{rS();rDWT();uBP()});
+// ═══════════════════════════════════════════════════
+// TIMING DIAGRAM — Miyama et al. visualization
+// ═══════════════════════════════════════════════════
+function drawTiming(){
+  const M=+document.getElementById('tmBP').value;
+  const canvas=document.getElementById('timingCanvas');
+  const dpr=window.devicePixelRatio||1;
+  const W=canvas.parentElement.clientWidth-40;
+  canvas.style.width=W+'px';canvas.style.height='360px';
+  canvas.width=W*dpr;canvas.height=360*dpr;
+  const ctx=canvas.getContext('2d');ctx.scale(dpr,dpr);
+  ctx.clearRect(0,0,W,360);
+
+  const passW=28;const gapW=6;const rowH=18;const margin={t:40,l:120,r:20,b:20};
+  const colors={SP:'#2B6CB0',MR:'#2D7D46',CU:'#6B46C1'};
+
+  // CONVENTIONAL
+  ctx.font='600 11px "IBM Plex Mono"';ctx.fillStyle='#1A1A1A';
+  ctx.fillText('CONVENTIONAL (Sequential)',margin.l,margin.t-8);
+
+  let cx=margin.l;const convY=margin.t;
+  for(let m=M-1;m>=0;m--){
+    const y=convY+(M-1-m)*rowH;
+    // Label
+    ctx.font='500 9px "IBM Plex Mono"';ctx.fillStyle='#999';ctx.textAlign='right';
+    ctx.fillText('#'+m,margin.l-8,y+12);ctx.textAlign='left';
+  }
+  let convTotal=0;
+  for(let m=M-1;m>=0;m--){
+    const y=convY;const xOff=margin.l+convTotal;
+    // SP
+    ctx.fillStyle=colors.SP;ctx.fillRect(xOff,y,passW,rowH-2);
+    ctx.fillStyle='#fff';ctx.font='600 7px "IBM Plex Mono"';ctx.fillText('SP',xOff+6,y+11);
+    // MR
+    ctx.fillStyle=colors.MR;ctx.fillRect(xOff+passW,y,passW,rowH-2);
+    ctx.fillStyle='#fff';ctx.fillText('MR',xOff+passW+5,y+11);
+    // CU
+    ctx.fillStyle=colors.CU;ctx.fillRect(xOff+2*passW,y,passW,rowH-2);
+    ctx.fillStyle='#fff';ctx.fillText('CU',xOff+2*passW+6,y+11);
+
+    ctx.fillStyle='#999';ctx.font='500 7px "IBM Plex Mono"';
+    ctx.fillText('#'+m,xOff+3*passW+3,y+11);
+    convTotal+=3*passW+2;
+  }
+
+  const convCycles=M*3*passW;
+  ctx.strokeStyle='var(--accent)';ctx.setLineDash([]);ctx.lineWidth=1;
+  ctx.beginPath();ctx.moveTo(margin.l+convTotal,convY-4);ctx.lineTo(margin.l+convTotal,convY+rowH+4);ctx.stroke();
+  ctx.fillStyle='var(--accent)';ctx.font='600 9px "IBM Plex Mono"';
+  ctx.fillText(convTotal+'',margin.l+convTotal+4,convY+10);
+
+  // PARALLEL (Miyama)
+  const parY=convY+70;
+  ctx.font='600 11px "IBM Plex Mono"';ctx.fillStyle='#1A1A1A';
+  ctx.fillText('PARALLEL — Miyama et al. (Bit-plane + Pass overlap)',margin.l,parY-8);
+
+  const gap=gapW+4;
+  for(let m=M-1;m>=0;m--){
+    const row=M-1-m;
+    const y=parY+row*rowH;
+    const xOff=margin.l+row*gap;
+
+    // Label
+    ctx.font='500 9px "IBM Plex Mono"';ctx.fillStyle='#999';ctx.textAlign='right';
+    ctx.fillText('#'+m,margin.l-8,y+12);ctx.textAlign='left';
+
+    // SP bar
+    ctx.fillStyle=colors.SP;ctx.globalAlpha=0.85;
+    ctx.fillRect(xOff,y,passW,rowH-2);
+    ctx.fillStyle='#fff';ctx.font='600 7px "IBM Plex Mono"';ctx.fillText('SP',xOff+6,y+11);
+    // MR+CU bar (overlaps with SP, offset by gap)
+    ctx.fillStyle=colors.MR;
+    ctx.fillRect(xOff+gap,y,passW*0.5,rowH-2);
+    ctx.fillStyle=colors.CU;
+    ctx.fillRect(xOff+gap+passW*0.5,y,passW*0.5,rowH-2);
+    ctx.fillStyle='#fff';ctx.font='600 6px "IBM Plex Mono"';
+    ctx.fillText('MR',xOff+gap+1,y+11);ctx.fillText('CU',xOff+gap+passW*0.5+1,y+11);
+    ctx.globalAlpha=1;
+  }
+
+  // Draw gap arrows
+  ctx.strokeStyle='rgba(192,86,33,0.5)';ctx.lineWidth=1;ctx.setLineDash([2,2]);
+  for(let m=0;m<M-1;m++){
+    const y1=parY+m*rowH+rowH/2;
+    const x1=margin.l+m*gap+gap*0.5;
+    ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x1+gap,y1+rowH);ctx.stroke();
+  }
+  ctx.setLineDash([]);
+
+  const parTotal=passW+gap+(M-1)*gap+passW;
+  const parEnd=margin.l+(M-1)*gap+passW+gap;
+  ctx.strokeStyle='var(--accent)';ctx.lineWidth=1;
+  ctx.beginPath();ctx.moveTo(parEnd,parY-4);ctx.lineTo(parEnd,parY+M*rowH+4);ctx.stroke();
+  ctx.fillStyle='var(--accent)';ctx.font='600 9px "IBM Plex Mono"';
+  ctx.fillText(Math.round(parTotal)+'',parEnd+4,parY+M*rowH/2);
+
+  // FIFO labels
+  ctx.fillStyle='rgba(192,86,33,0.7)';ctx.font='italic 500 9px "Source Sans 3"';
+  ctx.fillText('← 1-stripe + 1-col gap →',margin.l+2*gap,parY+M*rowH+16);
+  ctx.fillText('FIFO: σ(significance) + sign bits',margin.l+2*gap,parY+M*rowH+30);
+
+  // Legend
+  const legY=parY+M*rowH+48;
+  ctx.font='500 9px "IBM Plex Mono"';
+  [{c:colors.SP,l:'SP Pass'},{c:colors.MR,l:'MR Pass'},{c:colors.CU,l:'CU Pass'}].forEach((item,i)=>{
+    ctx.fillStyle=item.c;ctx.fillRect(margin.l+i*90,legY,12,12);
+    ctx.fillStyle='#666';ctx.fillText(item.l,margin.l+i*90+16,legY+10);
+  });
+
+  // Stats
+  const speedup=(convTotal/parTotal).toFixed(1);
+  document.getElementById('tmConv').textContent=convTotal;
+  document.getElementById('tmPar').textContent=Math.round(parTotal);
+  document.getElementById('tmSpeedup').textContent=speedup+'×';
+}
+
+// ── Init ──
+document.addEventListener('DOMContentLoaded',()=>{rS();rDWT();uBP();drawTiming()});
+window.addEventListener('resize',drawTiming);
 </script>
 </body>
 </html>
